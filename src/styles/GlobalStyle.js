@@ -6,6 +6,7 @@ import InterSemiBoldTtf from "@/styles/fonts/Inter/static/Inter-SemiBold.ttf";
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+
   * {
     margin: 0;
     padding: 0;

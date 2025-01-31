@@ -10,8 +10,10 @@ import SiemIcon3 from "@/assets/images/products-info/flashlight.svg";
 import DlpImage from "@/assets/images/products-info/dlp-img.png";
 import CybersecurityEfficiency from "@/components/sections/cybersecurity-efficiency";
 import Faq from "@/components/sections/faq";
+import ContactForm from "@/components/sections/contact-form";
 
 const Home = () => {
+  
   const DLP_DATA = {
     image: DlpImage,
     topTitle: "Automation",
@@ -75,6 +77,7 @@ const Home = () => {
       <ProductsInfo imagePosition="left" {...SIEM_DATA} />
       <CybersecurityEfficiency />
       <Faq />
+      <ContactForm />
     </PageWrapper>
   );
 };

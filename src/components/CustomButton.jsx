@@ -46,9 +46,9 @@ export const BtnTitle = styled.div`
         `}
 `;
 
-const CustomButton = ({ type = "default", title, children }) => {
+const CustomButton = ({ type = "default", title, children, ...props }) => {
   return (
-    <Button type={type}>
+    <Button type={type} {...props}>
       {title ? <BtnTitle type={type}>{title}</BtnTitle> : children}
     </Button>
   );

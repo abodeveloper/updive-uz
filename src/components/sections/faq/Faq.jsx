@@ -4,6 +4,7 @@ import { Accordion, Container } from "react-bootstrap";
 import { Bottom, SectionWrapper, StyledAccordion, Top } from "./Faq.styles";
 
 const Faq = () => {
+  
   const FAQ_DATA = [
     {
       title: "What is Updive and how can it benefit my business?",
