@@ -20,9 +20,7 @@ const Line = styled(motion.div)`
   //border-radius: 4px;
 `;
 
-const Hamburger = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
+const Hamburger = ({ isOpen, setIsOpen }) => {
   return (
     <HamburgerWrapper onClick={() => setIsOpen(!isOpen)}>
       <Line

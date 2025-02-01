@@ -144,11 +144,12 @@ export const StyledLink = styled(Link)`
 `;
 
 export const MobileNavbarWrapper = styled.div`
+  width: 100%;
+  overflow: hidden;
   background-color: ${({ theme }) => theme.colors.background.bgPrimary};
-  padding: 20px 0;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   transition: 0.2s all ease;
 
   ${({ isScrolled }) =>
@@ -161,6 +162,7 @@ export const MobileNavbarWrapper = styled.div`
 `;
 
 export const MobileContent = styled.div`
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
