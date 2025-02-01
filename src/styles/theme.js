@@ -7,7 +7,7 @@ const theme = {
     secondary: "#1A79D8",
     text: {
       textPrimary: "#171717",
-      textSecondary: "rgba(48, 48, 48, 0.64))",
+      textSecondary: "rgba(48, 48, 48, 0.64)",
     },
     background: {
       bgPrimary: "#fff",

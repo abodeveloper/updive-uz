@@ -21,37 +21,21 @@ import {
 } from "./Navbar.styles";
 
 import ArrowDown from "@/assets/images/arrow-down.svg";
+import MobileLogo from "@/assets/images/mobile-navbar-logo.svg";
 import LogoDlp from "@/assets/images/navbar-dlp-logo.svg";
 import {
   default as DlpImage,
   default as SiemImage,
 } from "@/assets/images/navbar-dlp.svg";
 import Logo from "@/assets/images/navbar-logo.svg";
-import MobileLogo from "@/assets/images/mobile-navbar-logo.svg";
 import LogoSiem from "@/assets/images/navbar-siem-logo.svg";
+import ContactImg from "@/assets/images/user-smile.svg";
 import CustomButton from "@/components/CustomButton";
+import Hamburger from "@/components/Hamburger";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import Hamburger from "@/components/Hamburger";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-
-// const MobileNavbarWrapper = styled.div`
-//   position: fixed;
-//   width: 100%;
-//   top: 0;
-//   left: 0;
-//   background: white;
-//   z-index: 1000;
-//   box-shadow: ${({ isScrolled }) =>
-//     isScrolled ? "0px 4px 10px rgba(0, 0, 0, 0.1)" : "none"};
-// `;
-
-// const MobileContent = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   padding: 15px 20px;
-// `;
 
 const Overlay = styled(motion.div)`
   position: fixed;
@@ -72,31 +56,56 @@ const MenuWrapper = styled(motion.div)`
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   z-index: 5;
   overflow: hidden;
+
+  border-radius: 0px 0px 12px 12px;
+  border-bottom: 1px solid #efefef;
+  background: #fff;
+  box-shadow: 0px 16px 24px -8px var(--shadows-drop-1, rgba(22, 25, 29, 0.03)),
+    0px 8px 12px -4px var(--shadows-drop-2, rgba(22, 25, 29, 0.04)),
+    0px 2px 4px 0px var(--shadows-drop-2, rgba(22, 25, 29, 0.04));
 `;
 
 const MenuContent = styled.div`
-  padding: 20px;
+  padding-bottom: 16px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 16px;
 `;
 
-const MenuItem = styled.a`
-  font-size: 18px;
+const MenuItem = styled(Link)`
   text-decoration: none;
-  color: black;
-  font-weight: 500;
-  padding: 10px 0;
-  transition: color 0.2s ease;
+  padding: 12px;
+  border-radius: 12px;
+  background-color: ${({ theme }) => theme.colors.background.bgSecondary};
+  display: flex;
+  gap: 12px;
 
-  &:hover {
-    color: #007bff;
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .title {
+      color: ${({ theme }) => theme.colors.text.textPrimary};
+      font-family: "Inter";
+      font-size: 20px;
+      line-height: 30px;
+    }
+    .description {
+      font-family: "Inter-Light";
+      font-size: 14px;
+      line-height: 20px;
+      color: ${({ theme }) => theme.colors.text.textSecondary};
+    }
+    .link {
+      font-family: "Inter";
+      font-size: 18px;
+      line-height: 24px;
+      color: ${({ theme }) => theme.colors.text.textPrimary};
+    }
   }
 `;
 
-
 const Navbar = () => {
-
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -211,16 +220,45 @@ const Navbar = () => {
               />
               <MenuWrapper
                 initial={{ y: "-100%" }}
-                animate={{ y: 80 }}
+                animate={{ y: 79 }}
                 exit={{ y: "-100%" }}
-                transition={{ type: "spring", stiffness: 100 }}
+                transition={{ type: "spring", stiffness: 50 }}
               >
-                <MenuContent>
-                  <MenuItem href="#">Home</MenuItem>
-                  <MenuItem href="#">About</MenuItem>
-                  <MenuItem href="#">Services</MenuItem>
-                  <MenuItem href="#">Contact</MenuItem>
-                </MenuContent>
+                <Container>
+                  <MenuContent>
+                    <MenuItem to={"#"} className="project">
+                      <div className="left">
+                        <img src={LogoDlp} alt="Logo" />
+                      </div>
+                      <div className="right">
+                        <div className="title">Updive DLP</div>
+                        <div className="description">
+                          Data Leak Prevention System
+                        </div>
+                      </div>
+                    </MenuItem>
+                    <MenuItem to={"#"} className="project">
+                      <div className="left">
+                        <img src={LogoSiem} alt="Logo" />
+                      </div>
+                      <div className="right">
+                        <div className="title">Updive SIEM</div>
+                        <div className="description">
+                          Security Information and Event Manager
+                        </div>
+                      </div>
+                    </MenuItem>
+                    <MenuItem to={"#"} className="project">
+                      <div className="left">
+                        <img src={ContactImg} alt="Logo" />
+                      </div>
+                      <div className="right">
+                        <div className="link">Contact</div>
+                      </div>
+                    </MenuItem>
+                    <CustomButton title={"Request Demo"} />
+                  </MenuContent>
+                </Container>
               </MenuWrapper>
             </>
           )}

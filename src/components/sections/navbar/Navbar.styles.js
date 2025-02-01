@@ -32,7 +32,7 @@ export const DropdownWrapper = styled.div`
     display: flex;
     align-items: center;
     gap: 5px;
-    color: rgba(48, 48, 48, 0.64);
+    color: ${({ theme }) => theme.colors.text.textSecondary};
     font-family: "Inter";
     font-size: 13px;
     line-height: 20px;
@@ -137,7 +137,7 @@ export const RightSide = styled.div`
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
-  color: rgba(48, 48, 48, 0.64);
+  color: ${({ theme }) => theme.colors.text.textSecondary};
   font-family: "Inter";
   font-size: 13px;
   line-height: 20px;
