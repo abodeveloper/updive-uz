@@ -13,8 +13,12 @@ import {
   DropdownMenu,
   DropdownWrapper,
   LeftSide,
+  MenuContent,
+  MenuItem,
+  MenuWrapper,
   MobileContent,
   MobileNavbarWrapper,
+  Overlay,
   RightSide,
   StyledLink,
   Top,
@@ -32,80 +36,13 @@ import LogoSiem from "@/assets/images/navbar-siem-logo.svg";
 import ContactImg from "@/assets/images/user-smile.svg";
 import CustomButton from "@/components/CustomButton";
 import Hamburger from "@/components/Hamburger";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-
-const Overlay = styled(motion.div)`
-  position: fixed;
-  top: 80px;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 5;
-`;
-
-const MenuWrapper = styled(motion.div)`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: white;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  z-index: 5;
-  overflow: hidden;
-
-  border-radius: 0px 0px 12px 12px;
-  border-bottom: 1px solid #efefef;
-  background: #fff;
-  box-shadow: 0px 16px 24px -8px var(--shadows-drop-1, rgba(22, 25, 29, 0.03)),
-    0px 8px 12px -4px var(--shadows-drop-2, rgba(22, 25, 29, 0.04)),
-    0px 2px 4px 0px var(--shadows-drop-2, rgba(22, 25, 29, 0.04));
-`;
-
-const MenuContent = styled.div`
-  padding-bottom: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-`;
-
-const MenuItem = styled(Link)`
-  text-decoration: none;
-  padding: 12px;
-  border-radius: 12px;
-  background-color: ${({ theme }) => theme.colors.background.bgSecondary};
-  display: flex;
-  gap: 12px;
-
-  .right {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    .title {
-      color: ${({ theme }) => theme.colors.text.textPrimary};
-      font-family: "Inter";
-      font-size: 20px;
-      line-height: 30px;
-    }
-    .description {
-      font-family: "Inter-Light";
-      font-size: 14px;
-      line-height: 20px;
-      color: ${({ theme }) => theme.colors.text.textSecondary};
-    }
-    .link {
-      font-family: "Inter";
-      font-size: 18px;
-      line-height: 24px;
-      color: ${({ theme }) => theme.colors.text.textPrimary};
-    }
-  }
-`;
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -129,7 +66,12 @@ const Navbar = () => {
         <Container>
           <Top>
             <LeftSide>
-              <img src={Logo} alt="" />
+              <img
+                src={Logo}
+                alt=""
+                style={{ cursor: "pointer" }}
+                onClick={() => navigate("/")}
+              />
               <DropdownWrapper
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -201,7 +143,7 @@ const Navbar = () => {
           </Top>
         </Container>
       </DesktopNavbarWrapper>
-      <MobileNavbarWrapper>
+      <MobileNavbarWrapper isScrolled={isScrolled}>
         <Container>
           <MobileContent>
             <img src={MobileLogo} alt="Logo" />
@@ -222,7 +164,7 @@ const Navbar = () => {
                 initial={{ y: "-100%" }}
                 animate={{ y: 79 }}
                 exit={{ y: "-100%" }}
-                transition={{ type: "spring", stiffness: 50 }}
+                transition={{ type: "spring", stiffness: 75 }}
               >
                 <Container>
                   <MenuContent>
@@ -248,7 +190,7 @@ const Navbar = () => {
                         </div>
                       </div>
                     </MenuItem>
-                    <MenuItem to={"#"} className="project">
+                    <MenuItem to={"/contacts"} className="project">
                       <div className="left">
                         <img src={ContactImg} alt="Logo" />
                       </div>

@@ -4,7 +4,10 @@ import styled from "styled-components";
 
 export const DesktopNavbarWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.background.bgPrimary};
-  padding: 20px 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  //padding: 20px 0;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -144,6 +147,7 @@ export const StyledLink = styled(Link)`
 `;
 
 export const MobileNavbarWrapper = styled.div`
+  display: none;
   width: 100%;
   overflow: hidden;
   background-color: ${({ theme }) => theme.colors.background.bgPrimary};
@@ -166,4 +170,72 @@ export const MobileContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+`;
+
+export const Overlay = styled(motion.div)`
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+`;
+
+export const MenuWrapper = styled(motion.div)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 5;
+  overflow: hidden;
+
+  border-radius: 0px 0px 12px 12px;
+  border-bottom: 1px solid #efefef;
+  background: #fff;
+  box-shadow: 0px 16px 24px -8px var(--shadows-drop-1, rgba(22, 25, 29, 0.03)),
+    0px 8px 12px -4px var(--shadows-drop-2, rgba(22, 25, 29, 0.04)),
+    0px 2px 4px 0px var(--shadows-drop-2, rgba(22, 25, 29, 0.04));
+`;
+
+export const MenuContent = styled.div`
+  padding-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+`;
+
+export const MenuItem = styled(Link)`
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 12px;
+  background-color: ${({ theme }) => theme.colors.background.bgSecondary};
+  display: flex;
+  gap: 12px;
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .title {
+      color: ${({ theme }) => theme.colors.text.textPrimary};
+      font-family: "Inter";
+      font-size: 20px;
+      line-height: 30px;
+    }
+    .description {
+      font-family: "Inter-Light";
+      font-size: 14px;
+      line-height: 20px;
+      color: ${({ theme }) => theme.colors.text.textSecondary};
+    }
+    .link {
+      font-family: "Inter";
+      font-size: 18px;
+      line-height: 24px;
+      color: ${({ theme }) => theme.colors.text.textPrimary};
+    }
+  }
 `;

@@ -1,3 +1,4 @@
+import HomeHeaderImage from "@/assets/images/home-header-image.svg";
 import DlpIcon2 from "@/assets/images/products-info/alarm-warning.svg";
 import SiemIcon2 from "@/assets/images/products-info/code-s-slash-fill.svg";
 import DlpImage from "@/assets/images/products-info/dlp-img.png";
@@ -11,6 +12,7 @@ import Faq from "@/components/sections/faq";
 import Features from "@/components/sections/feature";
 import Footer from "@/components/sections/footer";
 import Navbar from "@/components/sections/navbar";
+import PageHeader from "@/components/sections/page-header";
 import ProductsInfo from "@/components/sections/products-info";
 import { PageWrapper } from "./Home.styles";
 
@@ -74,6 +76,21 @@ const Home = () => {
   return (
     <PageWrapper>
       <Navbar />
+      <PageHeader
+        image={HomeHeaderImage}
+        title={"Stay Connected with <br/> Updive"}
+        description={
+          "Reach out to our team for expert guidance, technical support, or <br/> personalized solutions tailored to your business needs."
+        }
+        imageStyle={{
+          fill: `linear-gradient(180deg, #8400ff 3.91%, #6f06d2 93.29%, #9e35ff 100%)`,
+          filter: `drop-shadow(0px 2px 4px rgba(123, 2, 235, 0.21))
+    drop-shadow(0px 8px 8px rgba(123, 2, 235, 0.18))
+    drop-shadow(0px 17px 10px rgba(123, 2, 235, 0.11))
+    drop-shadow(0px 30px 12px rgba(123, 2, 235, 0.03))
+    drop-shadow(0px 47px 13px rgba(123, 2, 235, 0))`,
+        }}
+      />
       <Features />
       <ProductsInfo background="primary" imagePosition="right" {...DLP_DATA} />
       <ProductsInfo
