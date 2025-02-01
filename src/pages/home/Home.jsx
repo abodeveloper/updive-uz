@@ -1,19 +1,20 @@
-import Features from "@/components/sections/feature";
-import ProductsInfo from "@/components/sections/products-info";
-import { PageWrapper } from "./Home.styles";
-import DlpIcon1 from "@/assets/images/products-info/shield-flash.svg";
 import DlpIcon2 from "@/assets/images/products-info/alarm-warning.svg";
+import SiemIcon2 from "@/assets/images/products-info/code-s-slash-fill.svg";
+import DlpImage from "@/assets/images/products-info/dlp-img.png";
+import SiemIcon3 from "@/assets/images/products-info/flashlight.svg";
 import DlpIcon3 from "@/assets/images/products-info/key.svg";
 import SiemIcon1 from "@/assets/images/products-info/search.svg";
-import SiemIcon2 from "@/assets/images/products-info/code-s-slash-fill.svg";
-import SiemIcon3 from "@/assets/images/products-info/flashlight.svg";
-import DlpImage from "@/assets/images/products-info/dlp-img.png";
+import DlpIcon1 from "@/assets/images/products-info/shield-flash.svg";
+import ContactForm from "@/components/sections/contact-form";
 import CybersecurityEfficiency from "@/components/sections/cybersecurity-efficiency";
 import Faq from "@/components/sections/faq";
-import ContactForm from "@/components/sections/contact-form";
+import Features from "@/components/sections/feature";
+import Footer from "@/components/sections/footer";
+import Navbar from "@/components/sections/navbar";
+import ProductsInfo from "@/components/sections/products-info";
+import { PageWrapper } from "./Home.styles";
 
 const Home = () => {
-  
   const DLP_DATA = {
     image: DlpImage,
     topTitle: "Automation",
@@ -72,12 +73,18 @@ const Home = () => {
 
   return (
     <PageWrapper>
+      <Navbar />
       <Features />
-      <ProductsInfo imagePosition="right" {...DLP_DATA} />
-      <ProductsInfo imagePosition="left" {...SIEM_DATA} />
+      <ProductsInfo background="primary" imagePosition="right" {...DLP_DATA} />
+      <ProductsInfo
+        background="secondary"
+        imagePosition="left"
+        {...SIEM_DATA}
+      />
       <CybersecurityEfficiency />
       <Faq />
       <ContactForm />
+      <Footer />
     </PageWrapper>
   );
 };

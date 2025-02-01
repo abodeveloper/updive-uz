@@ -1,7 +1,15 @@
 import styled, { css } from "styled-components";
 
 export const SectionWrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.background.bgSecondary};
+  ${({ background }) =>
+    background === "primary"
+      ? css`
+          background-color: ${({ theme }) => theme.colors.background.bgPrimary};
+        `
+      : css`
+          background-color: ${({ theme }) =>
+            theme.colors.background.bgSecondary};
+        `}
 `;
 
 export const MyBox = styled.div`
@@ -77,7 +85,7 @@ export const RightSide = styled.div`
             left: 0;
           `
         : css`
-            right: 0
+            right: 0;
           `}
   }
 
@@ -107,7 +115,6 @@ export const InfoWrapper = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     grid-template-columns: repeat(1, 1fr);
-    gap: 60px;
   }
 `;
 

@@ -12,14 +12,31 @@ import { Container, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import { toast } from "react-toastify";
 import * as yup from "yup";
 import {
-    IconsWrapper,
-    LeftSide,
-    RightSide,
-    SectionWrapper,
-    StyledForm,
+  IconsWrapper,
+  LeftSide,
+  RightSide,
+  SectionWrapper,
+  StyledForm,
 } from "./ContactForm.styles";
+
+const BOT_TOKEN = "7724945535:AAHHERjlJDJpqN9hD2yNYkhLjsLRKe3OJyk"; // Bot tokeningizni kiriting
+const CHAT_ID = "-1002251533234"; // Foydalanuvchi yoki guruh chat ID'si
+
+const sendTelegramMessage = async (message) => {
+  const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+  try {
+    await axios.post(url, {
+      chat_id: CHAT_ID,
+      text: message,
+      parse_mode: "HTML",
+    });
+  } catch (error) {
+    console.error("Telegram xabar yuborishda xatolik:", error);
+  }
+};
 
 const schema = yup.object().shape({
   name: yup.string().required("Name is required"),
@@ -29,12 +46,12 @@ const schema = yup.object().shape({
     .test("is-valid", "Invalid phone number", (value) =>
       value ? /^\+\d{10,15}$/.test(value) : false
     ),
-  //message: yup.string().required("Message is required"),
 });
 
 const sendMessage = async (data) => {
-  const response = await axios.post("/api/contact", data);
-  return response.data;
+  await sendTelegramMessage(
+    `📩 <b>New Contact Form Submission</b>\n\n👤 Name: ${data.name}\n📞 Phone: ${data.phone}\n📝 Message: ${data.message}`
+  );
 };
 
 const ContactForm = () => {
@@ -52,11 +69,11 @@ const ContactForm = () => {
   const mutation = useMutation({
     mutationFn: sendMessage,
     onSuccess: () => {
-      alert("Message sent successfully!");
+      toast.success("Message sent successfully!");
       reset();
     },
     onError: () => {
-      alert("Failed to send message");
+      toast.error("There was an error sending the message!");
     },
   });
 

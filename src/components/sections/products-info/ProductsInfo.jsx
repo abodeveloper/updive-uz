@@ -1,6 +1,4 @@
-import Icon1 from "@/assets/images/feature-icons/line-chart.svg";
-import Icon3 from "@/assets/images/feature-icons/settings-6.svg";
-import Icon2 from "@/assets/images/feature-icons/time.svg";
+import CustomButton from "@/components/CustomButton";
 import SectionTitle from "@/components/SectionTitle";
 import { Container } from "react-bootstrap";
 import {
@@ -17,9 +15,9 @@ import {
   SectionWrapper,
   Top,
 } from "./ProductsInfo.styles";
-import CustomButton from "@/components/CustomButton";
 
 const ProductsInfo = ({
+  background = "primary",
   imagePosition = "right",
   image,
   title,
@@ -28,7 +26,7 @@ const ProductsInfo = ({
   info_data: INFO_DATA,
 }) => {
   return (
-    <SectionWrapper imagePosition={imagePosition}>
+    <SectionWrapper imagePosition={imagePosition} background={background}>
       <MyBox>
         <Container>
           <Top>
