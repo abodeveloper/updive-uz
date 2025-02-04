@@ -82,14 +82,7 @@ const Home = () => {
         description={
           "Reach out to our team for expert guidance, technical support, or <br/> personalized solutions tailored to your business needs."
         }
-        imageStyle={{
-          fill: `linear-gradient(180deg, #8400ff 3.91%, #6f06d2 93.29%, #9e35ff 100%)`,
-          filter: `drop-shadow(0px 2px 4px rgba(123, 2, 235, 0.21))
-    drop-shadow(0px 8px 8px rgba(123, 2, 235, 0.18))
-    drop-shadow(0px 17px 10px rgba(123, 2, 235, 0.11))
-    drop-shadow(0px 30px 12px rgba(123, 2, 235, 0.03))
-    drop-shadow(0px 47px 13px rgba(123, 2, 235, 0))`,
-        }}
+        imageStyle={{}}
       />
       <Features />
       <ProductsInfo background="primary" imagePosition="right" {...DLP_DATA} />

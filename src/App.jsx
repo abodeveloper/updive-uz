@@ -1,6 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 import { ThemeProvider } from "styled-components";
 import AppRouter from "./routes/Router";
 import GlobalStyle from "./styles/GlobalStyle";

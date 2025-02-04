@@ -1,27 +1,27 @@
 import HomeHeaderImage from "@/assets/images/home-header-image.svg";
+import BusinessEfficiency from "@/components/sections/business-efficiency";
 import ContactForm from "@/components/sections/contact-form";
-import ContactMap from "@/components/sections/contact-map";
 import Footer from "@/components/sections/footer";
 import Navbar from "@/components/sections/navbar";
 import PageHeader from "@/components/sections/page-header";
 
-const Contacts = () => {
+const Services = () => {
   return (
     <>
       <Navbar />
       <PageHeader
         image={HomeHeaderImage}
-        title={"Stay Connected with <br/> Updive"}
+        title={"Unleashing the Power <br/> of Updive"}
         description={
-          "Reach out to our team for expert guidance, technical support, or <br/> personalized solutions tailored to your business needs."
+          "Discover the key features that make Updive the ultimate solution for <br/> robust, efficient, and intelligent security management."
         }
         imageStyle={{}}
       />
+      <BusinessEfficiency />
       <ContactForm />
-      <ContactMap />
       <Footer />
     </>
   );
 };
 
-export default Contacts;
+export default Services;

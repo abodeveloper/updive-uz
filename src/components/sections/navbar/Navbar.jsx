@@ -32,6 +32,7 @@ import {
   default as SiemImage,
 } from "@/assets/images/navbar-dlp.svg";
 import Logo from "@/assets/images/navbar-logo.svg";
+import ServiceImg from "@/assets/images/navbar-service.svg";
 import LogoSiem from "@/assets/images/navbar-siem-logo.svg";
 import ContactImg from "@/assets/images/user-smile.svg";
 import CustomButton from "@/components/CustomButton";
@@ -67,74 +68,89 @@ const Navbar = () => {
           <Top>
             <LeftSide>
               <img
-                src={Logo}
+                src={MobileLogo}
                 alt=""
                 style={{ cursor: "pointer" }}
                 onClick={() => navigate("/")}
               />
-              <DropdownWrapper
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
+              <div
+                style={{ display: "flex", alignItems: "center", gap: "20px" }}
               >
-                <div className="title">
-                  Product
-                  <ArrowIcon
-                    animate={{ rotate: isOpen ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <img src={ArrowDown} alt="" />
-                  </ArrowIcon>
-                </div>
-                <AnimatePresence>
-                  {isOpen && (
-                    <DropdownContainer>
-                      <DropdownMenu
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <DropdownItem>
-                          <DropdownItemTop>
-                            <DropdownItemTopLeft>
-                              <img src={LogoDlp} alt="" />
-                            </DropdownItemTopLeft>
-                            <DropdownItemTopRight>
-                              <DropdownItemTopRightTitle>
-                                Updive DLP
-                              </DropdownItemTopRightTitle>
-                              <DropdownItemTopRightDescription>
-                                Data Leak Prevention System
-                              </DropdownItemTopRightDescription>
-                            </DropdownItemTopRight>
-                          </DropdownItemTop>
-                          <DropdownItemBottom>
-                            <img src={DlpImage} alt="" />
-                          </DropdownItemBottom>
-                        </DropdownItem>
-                        <DropdownItem>
-                          <DropdownItemTop>
-                            <DropdownItemTopLeft>
-                              <img src={LogoSiem} alt="" />
-                            </DropdownItemTopLeft>
-                            <DropdownItemTopRight>
-                              <DropdownItemTopRightTitle>
-                                Updive SIEM
-                              </DropdownItemTopRightTitle>
-                              <DropdownItemTopRightDescription>
-                                Security Information and Event Manager
-                              </DropdownItemTopRightDescription>
-                            </DropdownItemTopRight>
-                          </DropdownItemTop>
-                          <DropdownItemBottom>
-                            <img src={SiemImage} alt="" />
-                          </DropdownItemBottom>
-                        </DropdownItem>
-                      </DropdownMenu>
-                    </DropdownContainer>
-                  )}
-                </AnimatePresence>
-              </DropdownWrapper>
+                <DropdownWrapper
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <div className="title">
+                    Product
+                    <ArrowIcon
+                      animate={{ rotate: isOpen ? -180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <img src={ArrowDown} alt="" />
+                    </ArrowIcon>
+                  </div>
+                  <AnimatePresence>
+                    {isOpen && (
+                      <DropdownContainer>
+                        <DropdownMenu
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -10 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <DropdownItem
+                            onClick={() => {
+                              navigate("/products/dlp");
+                              handleMouseLeave();
+                            }}
+                          >
+                            <DropdownItemTop>
+                              <DropdownItemTopLeft>
+                                <img src={LogoDlp} alt="" />
+                              </DropdownItemTopLeft>
+                              <DropdownItemTopRight>
+                                <DropdownItemTopRightTitle>
+                                  Updive DLP
+                                </DropdownItemTopRightTitle>
+                                <DropdownItemTopRightDescription>
+                                  Data Leak Prevention System
+                                </DropdownItemTopRightDescription>
+                              </DropdownItemTopRight>
+                            </DropdownItemTop>
+                            <DropdownItemBottom>
+                              <img src={DlpImage} alt="" />
+                            </DropdownItemBottom>
+                          </DropdownItem>
+                          <DropdownItem
+                            onClick={() => {
+                              navigate("/products/siem");
+                              handleMouseLeave();
+                            }}
+                          >
+                            <DropdownItemTop>
+                              <DropdownItemTopLeft>
+                                <img src={LogoSiem} alt="" />
+                              </DropdownItemTopLeft>
+                              <DropdownItemTopRight>
+                                <DropdownItemTopRightTitle>
+                                  Updive SIEM
+                                </DropdownItemTopRightTitle>
+                                <DropdownItemTopRightDescription>
+                                  Security Information and Event Manager
+                                </DropdownItemTopRightDescription>
+                              </DropdownItemTopRight>
+                            </DropdownItemTop>
+                            <DropdownItemBottom>
+                              <img src={SiemImage} alt="" />
+                            </DropdownItemBottom>
+                          </DropdownItem>
+                        </DropdownMenu>
+                      </DropdownContainer>
+                    )}
+                  </AnimatePresence>
+                </DropdownWrapper>
+                <StyledLink to="/services">Services</StyledLink>
+              </div>
             </LeftSide>
             <RightSide>
               <StyledLink to="/contacts">Contacts</StyledLink>
@@ -168,7 +184,13 @@ const Navbar = () => {
               >
                 <Container>
                   <MenuContent>
-                    <MenuItem to={"#"} className="project">
+                    <MenuItem
+                      to={"/products/siem"}
+                      className="project"
+                      onClick={() => {
+                        setIsOpenMenu(false);
+                      }}
+                    >
                       <div className="left">
                         <img src={LogoDlp} alt="Logo" />
                       </div>
@@ -179,7 +201,13 @@ const Navbar = () => {
                         </div>
                       </div>
                     </MenuItem>
-                    <MenuItem to={"#"} className="project">
+                    <MenuItem
+                      to={"/products/siem"}
+                      className="project"
+                      onClick={() => {
+                        setIsOpenMenu(false);
+                      }}
+                    >
                       <div className="left">
                         <img src={LogoSiem} alt="Logo" />
                       </div>
@@ -190,15 +218,36 @@ const Navbar = () => {
                         </div>
                       </div>
                     </MenuItem>
-                    <MenuItem to={"/contacts"} className="project">
+                    <MenuItem
+                      to={"/services"}
+                      onClick={() => {
+                        setIsOpenMenu(false);
+                      }}
+                    >
+                      <div className="left">
+                        <img src={ServiceImg} alt="Logo" />
+                      </div>
+                      <div className="right">
+                        <div className="link">Services</div>
+                      </div>
+                    </MenuItem>
+                    <MenuItem
+                      to={"/contacts"}
+                      onClick={() => {
+                        setIsOpenMenu(false);
+                      }}
+                    >
                       <div className="left">
                         <img src={ContactImg} alt="Logo" />
                       </div>
                       <div className="right">
-                        <div className="link">Contact</div>
+                        <div className="link">Contacts</div>
                       </div>
                     </MenuItem>
-                    <CustomButton title={"Request Demo"} />
+                    <CustomButton
+                      onClick={() => navigate("/contacts")}
+                      title={"Request Demo"}
+                    />
                   </MenuContent>
                 </Container>
               </MenuWrapper>

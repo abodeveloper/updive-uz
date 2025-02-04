@@ -7,7 +7,6 @@ export const DesktopNavbarWrapper = styled.div`
   height: 80px;
   display: flex;
   align-items: center;
-  //padding: 20px 0;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -48,9 +47,10 @@ export const ArrowIcon = styled(motion.div)`
 
 export const DropdownContainer = styled(motion.div)`
   padding-top: 40px;
-  position: absolute;
-  top: 100%;
-  left: 0;
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
 `;
 
 export const DropdownMenu = styled(motion.div)`
@@ -129,7 +129,7 @@ export const DropdownItemBottom = styled.div`
 export const LeftSide = styled.div`
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 50px;
 `;
 
 export const RightSide = styled.div`
