@@ -16,10 +16,11 @@ const PartnersCarousel = () => {
     centerPadding: "150px", // O‘rtadagi slaydni markazda to‘liq ko‘rsatish
     slidesToShow: 3, // Faqat bitta slayd markazda ko‘rsatiladi
     speed: 500,
-    autoplay: false, // Avtomatik almashish
+    autoplay: true, // Avtomatik almashish
     autoplaySpeed: 3000, // Har 3 sekundda almashish
     pauseOnHover: false, // Hover qilganda ham davom etish
     dots: false, // Pastdagi nuqtalarni qo‘shish,
+    cssEase: "linear",
     responsive: [
       {
         breakpoint: 768, // Mobil qurilmalar uchun
@@ -33,7 +34,7 @@ const PartnersCarousel = () => {
 
   const PARTNERS = [
     {
-      title: "IES",
+      title: "“ISSIQLIK ELЕKTR STANSIYALARI” AKSIYADORLIK JAMIYATI",
       img: Logo1,
     },
     {
@@ -66,8 +67,7 @@ const PartnersCarousel = () => {
           <Slider {...settings}>
             {PARTNERS?.map((item, index) => (
               <div key={index}>
-                <OverlayTrigger
-                  style={{ outline: "none" }}
+                {/* <OverlayTrigger
                   placement="top"
                   delay={{ show: 150, hide: 150 }}
                   overlay={
@@ -75,7 +75,8 @@ const PartnersCarousel = () => {
                   }
                 >
                   <img src={item.img} alt={item.title} />
-                </OverlayTrigger>
+                </OverlayTrigger> */}
+                <img src={item.img} alt={item.title} />
               </div>
             ))}
           </Slider>
