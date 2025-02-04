@@ -15,6 +15,7 @@ const ProductCarousel = ({ images, url }) => {
     autoplaySpeed: 3000, // Har 3 sekundda almashish
     pauseOnHover: false, // Hover qilganda ham davom etish
     dots: true, // Pastdagi nuqtalarni qo‘shish,
+
     responsive: [
       {
         breakpoint: 768, // Mobil qurilmalar uchun

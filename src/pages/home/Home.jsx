@@ -13,6 +13,7 @@ import Features from "@/components/sections/feature";
 import Footer from "@/components/sections/footer";
 import Navbar from "@/components/sections/navbar";
 import PageHeader from "@/components/sections/page-header";
+import PartnersCarousel from "@/components/sections/partners-carousel";
 import ProductsInfo from "@/components/sections/products-info";
 import { PageWrapper } from "./Home.styles";
 
@@ -84,6 +85,7 @@ const Home = () => {
         }
         imageStyle={{}}
       />
+      <PartnersCarousel />
       <Features />
       <ProductsInfo background="primary" imagePosition="right" {...DLP_DATA} />
       <ProductsInfo
