@@ -15,7 +15,7 @@ const HamburgerWrapper = styled.div`
 
 const Line = styled(motion.div)`
   width: ${(props) => (props.large ? "25px" : "18px")};
-  height: 4px;
+  height: 3px;
   background: #7b7b7b;
   //border-radius: 4px;
 `;
@@ -39,7 +39,7 @@ const Hamburger = ({ isOpen, setIsOpen }) => {
       <Line
         animate={{
           rotate: isOpen ? -45 : 0,
-          y: isOpen ? -10 : 0,
+          y: isOpen ? -8 : 0,
           width: isOpen ? "25px" : "18px",
         }}
         transition={{ duration: 0.3 }}
