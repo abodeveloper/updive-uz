@@ -57,7 +57,7 @@ export const DropdownMenu = styled(motion.div)`
   overflow: hidden;
   border-radius: 16px;
   border: 1px solid #efefef;
-  background-color: ${({ theme }) => theme.colors.background.bgSecondary};
+  background-color: ${({ theme }) => theme.colors.background.bgPrimary};
   box-shadow: 0px 16px 48px 0px var(--shadows-drop-1, rgba(22, 25, 29, 0.03)),
     0px 10px 18px 0px var(--shadows-drop-1, rgba(22, 25, 29, 0.03)),
     0px 5px 8px 0px var(--shadows-drop-2, rgba(22, 25, 29, 0.04)),
@@ -70,11 +70,12 @@ export const DropdownMenu = styled(motion.div)`
 
 export const DropdownItem = styled.div`
   cursor: pointer;
+  width: 45vw;
   padding: 15px;
   border-radius: 16px;
   transition: 0.2s all ease;
   &:hover {
-    background-color: ${({ theme }) => theme.colors.background.bgPrimary};
+    background-color: ${({ theme }) => theme.colors.background.bgSecondary};
   }
 `;
 
@@ -98,7 +99,7 @@ export const DropdownItemTopRight = styled.div`
 
 export const DropdownItemTopRightTitle = styled.div`
   color: ${({ theme }) => theme.colors.text.textPrimary};
-  font-family: "Inter-SemiBold";
+  font-family: "Inter";
   font-size: 22px;
   line-height: 30px;
   letter-spacing: -0.24px;
@@ -118,6 +119,7 @@ export const DropdownItemBottom = styled.div`
   border-radius: 12px;
   border: 1px solid #d8d8d8;
   img {
+    width: 100%;
     border-radius: 12px;
     transition: 0.2s all ease;
     &:hover {

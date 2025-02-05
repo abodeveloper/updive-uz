@@ -1,6 +1,8 @@
 import CustomButton from "@/components/CustomButton";
 import SectionTitle from "@/components/SectionTitle";
+import { motion } from "framer-motion";
 import { Container } from "react-bootstrap";
+import BrowserFrame from "react-browser-frame";
 import {
   Bottom,
   ButtonsWrapper,
@@ -22,6 +24,7 @@ const ProductsInfo = ({
   image,
   title,
   topTitle,
+  url,
   description,
   info_data: INFO_DATA,
 }) => {
@@ -42,8 +45,17 @@ const ProductsInfo = ({
                 <CustomButton type="default" title={"Contacts"} />
               </ButtonsWrapper>
             </LeftSide>
-            <RightSide imagePosition={imagePosition}>
-              <img src={image} alt="" />
+            <RightSide
+              as={motion.div}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 1, ease: "easeInOut" }}
+              imagePosition={imagePosition}
+            >
+              <BrowserFrame url={url} padding="0">
+                <img src={image} alt="" />
+              </BrowserFrame>
             </RightSide>
           </Top>
         </Container>
@@ -63,9 +75,26 @@ const ProductsInfo = ({
 
 export default ProductsInfo;
 
-export const InfoItem = ({ icon, title, description }) => {
+export const InfoItem = ({ icon, title, description, animation }) => {
   return (
-    <InfoBox>
+    <InfoBox
+      as={motion.div}
+      initial={{
+        opacity: 0,
+        ...(animation === "left"
+          ? { x: -100 }
+          : animation === "right"
+          ? { x: 100 }
+          : animation === "bottom"
+          ? { y: 100 }
+          : animation === "top"
+          ? { y: -100 }
+          : {}),
+      }}
+      whileInView={{ opacity: 1, y: 0, x: 0 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 1, ease: "easeInOut" }}
+    >
       {icon && <InfoIcon src={icon} />}
       <InfoTitle>{title}</InfoTitle>
       {description && (

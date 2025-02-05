@@ -1,3 +1,4 @@
+import { Fade } from "react-reveal";
 import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
@@ -76,19 +77,28 @@ const SectionTitle = ({
 }) => {
   return (
     <Wrapper justify={justify}>
-      {topTitle && <TopTitle dangerouslySetInnerHTML={{ __html: topTitle }} />}
-      <Title
-        justify={justify}
-        mode={mode}
-        dangerouslySetInnerHTML={{ __html: title }}
-      />
+      {topTitle && (
+        <Fade duration={1000} delay={700}>
+          <TopTitle dangerouslySetInnerHTML={{ __html: topTitle }} />
+        </Fade>
+      )}
 
-      {description && (
-        <Description
+      <Fade duration={1000} delay={500}>
+        <Title
           justify={justify}
           mode={mode}
-          dangerouslySetInnerHTML={{ __html: description }}
+          dangerouslySetInnerHTML={{ __html: title }}
         />
+      </Fade>
+
+      {description && (
+        <Fade duration={1000} delay={500}>
+          <Description
+            justify={justify}
+            mode={mode}
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
+        </Fade>
       )}
     </Wrapper>
   );

@@ -10,17 +10,26 @@ export const SectionWrapper = styled.div`
   }
 `;
 
+export const Wrapper = styled.div`
+  margin: 0 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    margin: 0;
+  }
+`;
+
 export const StyledForm = styled(Form)`
   background-color: ${({ theme }) => theme.colors.background.bgPrimary};
   padding: 32px;
-  margin: 0 100px;
-  border-radius: 24px;
+  border-radius: 16px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    margin: 0;
     grid-template-columns: repeat(1, 1fr);
     padding: 16px;
     padding-top: 40px;
@@ -96,5 +105,68 @@ export const RightSide = styled.div`
     &:focus {
       box-shadow: none;
     }
+  }
+`;
+
+export const BottomCards = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    margin: 0;
+    grid-template-columns: repeat(1, 1fr);
+  }
+`;
+
+export const Card = styled.div`
+  display: flex;
+  justify-content: space-between;
+  background-color: ${({ theme }) => theme.colors.background.bgPrimary};
+  padding: 32px;
+  border-radius: 16px;
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .left-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .title {
+        color: ${({ theme }) => theme.colors.text.textPrimary};
+        font-family: "Inter-SemiBold";
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+
+    .link {
+      color: ${({ theme }) => theme.colors.text.textSecondary};
+      font-family: "Inter-Light";
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+
+  .right {
+    img {
+      cursor: pointer;
+    }
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    padding: 16px;
+  }
+`;
+
+export const LeftTop = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
   }
 `;

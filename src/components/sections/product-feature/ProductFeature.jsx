@@ -11,6 +11,7 @@ import {
   SectionWrapper,
   Top,
 } from "./ProductFeature.styles";
+import { Fade } from "react-reveal";
 
 const ProductFeature = ({ data }) => {
   const { title, description, topTitle, info_data: INFO_DATA } = data;
@@ -28,7 +29,7 @@ const ProductFeature = ({ data }) => {
         </Top>
         <Bottom>
           <InfoWrapper>
-            {INFO_DATA.map((item, index) => (
+            {INFO_DATA?.map((item, index) => (
               <InfoItem key={index} {...item} />
             ))}
           </InfoWrapper>
@@ -42,14 +43,16 @@ export default ProductFeature;
 
 export const InfoItem = ({ icon, title, description }) => {
   return (
-    <InfoBox>
-      {icon && (
-        <InfoIconBox>
-          <InfoIcon src={icon} />
-        </InfoIconBox>
-      )}
-      <InfoTitle>{title}</InfoTitle>
-      {description && <InfoDesc>{description}</InfoDesc>}
-    </InfoBox>
+    <Fade duration={1000} delay={400}>
+      <InfoBox>
+        {icon && (
+          <InfoIconBox>
+            <InfoIcon src={icon} />
+          </InfoIconBox>
+        )}
+        <InfoTitle>{title}</InfoTitle>
+        {description && <InfoDesc>{description}</InfoDesc>}
+      </InfoBox>
+    </Fade>
   );
 };

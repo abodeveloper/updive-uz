@@ -1,9 +1,9 @@
 import Icon4 from "@/assets/images/services-icons/code-s-slash-fill.svg";
 import Icon1 from "@/assets/images/services-icons/flow-chart.svg";
-import Icon3 from "@/assets/images/services-icons/terminal-window.svg";
 import Icon5 from "@/assets/images/services-icons/node-tree.svg";
-import Icon2 from "@/assets/images/services-icons/shield-check.svg";
 import Icon6 from "@/assets/images/services-icons/service.svg";
+import Icon2 from "@/assets/images/services-icons/shield-check.svg";
+import Icon3 from "@/assets/images/services-icons/terminal-window.svg";
 import SectionTitle from "@/components/SectionTitle";
 import { Container } from "react-bootstrap";
 import {
@@ -86,10 +86,12 @@ export default BusinessEfficiency;
 
 export const InfoItem = ({ icon, title, description }) => {
   return (
-    <InfoBox>
-      {icon && <InfoIcon src={icon} />}
-      <InfoTitle>{title}</InfoTitle>
-      {description && <InfoDesc>{description}</InfoDesc>}
-    </InfoBox>
+    <>
+      <InfoBox>
+        {icon && <InfoIcon src={icon} />}
+        <InfoTitle>{title}</InfoTitle>
+        {description && <InfoDesc>{description}</InfoDesc>}
+      </InfoBox>
+    </>
   );
 };

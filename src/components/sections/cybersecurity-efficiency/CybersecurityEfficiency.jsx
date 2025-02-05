@@ -2,6 +2,8 @@ import Arrow from "@/assets/images/arrow-right.svg";
 import CustomButton from "@/components/CustomButton";
 import SectionTitle from "@/components/SectionTitle";
 import { Container } from "react-bootstrap";
+import CountUp from "react-countup";
+import ReactVisibilitySensor from "react-visibility-sensor";
 import {
   Bottom,
   InfoBox,
@@ -36,7 +38,25 @@ const CybersecurityEfficiency = () => {
           <InfoWrapper>
             <InfoBox>
               <InfoTopTitle>Up to</InfoTopTitle>
-              <InfoNumber>500K</InfoNumber>
+              <InfoNumber>
+                <CountUp
+                  start={0}
+                  end={500}
+                  duration={2}
+                  separator=" "
+                  suffix={"K"}
+                  className="count"
+                  redraw={true}
+                >
+                  {({ countUpRef, start }) => (
+                    <ReactVisibilitySensor onChange={start} delayedCall>
+                      <>
+                        <span ref={countUpRef} className="count" />
+                      </>
+                    </ReactVisibilitySensor>
+                  )}
+                </CountUp>
+              </InfoNumber>
               <InfoTitle>Threats Prevented</InfoTitle>
               <InfoDesc>
                 Protect your business by preventing over 500,000 cyber threats
@@ -47,7 +67,26 @@ const CybersecurityEfficiency = () => {
             <Seperator />
             <InfoBox>
               <InfoTopTitle>Up to</InfoTopTitle>
-              <InfoNumber>99.9%</InfoNumber>
+              <InfoNumber>
+                <CountUp
+                  start={0}
+                  end={99.9}
+                  duration={2}
+                  decimals={1}
+                  separator=" "
+                  suffix={"%"}
+                  className="count"
+                  redraw={true}
+                >
+                  {({ countUpRef, start }) => (
+                    <ReactVisibilitySensor onChange={start} delayedCall>
+                      <>
+                        <span ref={countUpRef} className="count" />
+                      </>
+                    </ReactVisibilitySensor>
+                  )}
+                </CountUp>
+              </InfoNumber>
               <InfoTitle>Threat Response Time</InfoTitle>
               <InfoDesc>
                 Our platform guarantees a 99.9% response rate to threats,

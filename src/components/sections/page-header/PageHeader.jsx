@@ -7,16 +7,25 @@ import {
   SectionWrapper,
   Title,
 } from "./PageHeader.styles";
+import { Fade } from "react-reveal";
 
 const PageHeader = ({ image, title, description, imageStyle }) => {
   return (
     <SectionWrapper>
       <Container>
         <Content>
-          <Image src={image} style={imageStyle} alt="" />
-          <Title dangerouslySetInnerHTML={{ __html: title }} />
-          <Description dangerouslySetInnerHTML={{ __html: description }} />
-          <CustomButton title={"Get started"} type="primary" />
+          <Fade duration={1000} delay={100}>
+            <Image src={image} style={imageStyle} alt="" />
+          </Fade>
+          <Fade duration={1000} delay={500}>
+            <Title dangerouslySetInnerHTML={{ __html: title }} />
+          </Fade>
+          <Fade duration={1000} delay={500}>
+            <Description dangerouslySetInnerHTML={{ __html: description }} />
+          </Fade>
+          <Fade duration={1000} delay={700}>
+            <CustomButton title={"Get started"} type="primary" />
+          </Fade>
         </Content>
       </Container>
     </SectionWrapper>

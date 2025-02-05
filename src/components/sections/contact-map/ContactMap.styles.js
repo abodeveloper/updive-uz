@@ -23,3 +23,30 @@ export const Map = styled.div`
     border: 1px solid #efefef;
   }
 `;
+
+export const Bottom = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+  }
+`;
+
+export const BottomTop = styled.div`
+  display: flex;
+  gap: 8px;
+`;
+
+export const Text = styled.div`
+  color: ${({ theme }) => theme.colors.text.textPrimary};
+  font-family: "Inter-SemiBold";
+  font-size: 16px;
+  line-height: 24px;
+`;
+
+export const BottomText = styled.div`
+  color: ${({ theme }) => theme.colors.text.textSecondary};
+  font-family: "Inter-Light";
+  font-size: 14px;
+  line-height: 20px;
+`;

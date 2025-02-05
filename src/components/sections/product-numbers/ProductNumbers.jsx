@@ -2,6 +2,8 @@ import CustomButton from "@/components/CustomButton";
 import SectionTitle from "@/components/SectionTitle";
 import { get } from "lodash";
 import { Container } from "react-bootstrap";
+import CountUp from "react-countup";
+import ReactVisibilitySensor from "react-visibility-sensor";
 import {
   Bottom,
   InfoBox,
@@ -33,14 +35,51 @@ const ProductNumbers = ({ data }) => {
           <InfoWrapper>
             <InfoBox>
               <InfoTopTitle>{get(left, "topTitle")}</InfoTopTitle>
-              <InfoNumber>{get(left, "number")}</InfoNumber>
+              <InfoNumber>
+                <CountUp
+                  start={0}
+                  end={get(left, "number")}
+                  duration={2}
+                  separator=" "
+                  suffix={get(left, "suffix")}
+                  className="count"
+                  redraw={true}
+                >
+                  {({ countUpRef, start }) => (
+                    <ReactVisibilitySensor onChange={start} delayedCall>
+                      <>
+                        <span ref={countUpRef} className="count" />
+                      </>
+                    </ReactVisibilitySensor>
+                  )}
+                </CountUp>
+              </InfoNumber>
               <InfoTitle>{get(left, "title")}</InfoTitle>
               <InfoDesc>{get(left, "description")}</InfoDesc>
             </InfoBox>
             <Seperator />
             <InfoBox>
               <InfoTopTitle>{get(center, "topTitle")}</InfoTopTitle>
-              <InfoNumber>{get(center, "number")}</InfoNumber>
+              <InfoNumber>
+                <CountUp
+                  start={0}
+                  end={get(center, "number")}
+                  duration={2}
+                  separator=" "
+                  decimals={1}
+                  suffix={get(center, "suffix")}
+                  className="count"
+                  redraw={true}
+                >
+                  {({ countUpRef, start }) => (
+                    <ReactVisibilitySensor onChange={start} delayedCall>
+                      <>
+                        <span ref={countUpRef} className="count" />
+                      </>
+                    </ReactVisibilitySensor>
+                  )}
+                </CountUp>
+              </InfoNumber>
               <InfoTitle>{get(center, "title")}</InfoTitle>
               <InfoDesc>{get(center, "description")}</InfoDesc>
             </InfoBox>

@@ -27,11 +27,9 @@ import {
 import ArrowDown from "@/assets/images/arrow-down.svg";
 import MobileLogo from "@/assets/images/mobile-navbar-logo.svg";
 import LogoDlp from "@/assets/images/navbar-dlp-logo.svg";
-import {
-  default as DlpImage,
-  default as SiemImage,
-} from "@/assets/images/navbar-dlp.svg";
-import Logo from "@/assets/images/navbar-logo.svg";
+//import { default as DlpImage } from "@/assets/images/navbar-dlp.svg";
+import SiemImage from "@/assets/images/product-carousel-images/siem/siem-crl-image-1.png";
+import DlpImage from "@/assets/images/product-carousel-images/dlp/dlp-crl-image-1.png";
 import ServiceImg from "@/assets/images/navbar-service.svg";
 import LogoSiem from "@/assets/images/navbar-siem-logo.svg";
 import ContactImg from "@/assets/images/user-smile.svg";
@@ -185,7 +183,7 @@ const Navbar = () => {
                 <Container>
                   <MenuContent>
                     <MenuItem
-                      to={"/products/siem"}
+                      to={"/products/dlp"}
                       className="project"
                       onClick={() => {
                         setIsOpenMenu(false);

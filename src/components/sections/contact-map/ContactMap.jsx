@@ -1,6 +1,15 @@
+import Address from "@/assets/images/map-pin-5.svg";
 import SectionTitle from "@/components/SectionTitle";
 import { Container } from "react-bootstrap";
-import { Map, SectionWrapper, Wrapper } from "./ContactMap.styles";
+import {
+  Bottom,
+  BottomText,
+  BottomTop,
+  Map,
+  SectionWrapper,
+  Text,
+  Wrapper,
+} from "./ContactMap.styles";
 
 const ContactMap = () => {
   return (
@@ -12,7 +21,7 @@ const ContactMap = () => {
             topTitle="Automation"
             title="Boost your business efficiency"
             description={
-              "Manage Your Entire Business Ecosystem from a Single Dashboard with Our Scalable, Cloud-Based SaaS Solution Tailored to Your Needs."
+              "Manage Your Entire Business Ecosystem from a Single Dashboard with Our Scalable, <br/> Cloud-Based SaaS Solution Tailored to Your Needs."
             }
           />
           <Map>
@@ -24,6 +33,13 @@ const ContactMap = () => {
               loading="lazy"
             />
           </Map>
+          <Bottom>
+            <BottomTop>
+              <img src={Address} alt="" />
+              <Text>Address</Text>
+            </BottomTop>
+            <BottomText>Niyozbek Yuli Street 3rd Drive 6A, 100000, Toshkent</BottomText>
+          </Bottom>
         </Wrapper>
       </Container>
     </SectionWrapper>

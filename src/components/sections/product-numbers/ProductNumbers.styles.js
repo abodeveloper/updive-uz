@@ -69,6 +69,13 @@ export const InfoNumber = styled.div`
   font-size: 40px;
   line-height: 48px;
   color: ${({ theme }) => theme.colors.text.textPrimary};
+
+  .count {
+    font-family: "Inter-Bold";
+    font-size: 40px;
+    line-height: 48px;
+    color: ${({ theme }) => theme.colors.text.textPrimary};
+  }
 `;
 
 export const InfoTitle = styled.div`

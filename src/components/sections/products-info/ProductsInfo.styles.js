@@ -73,29 +73,47 @@ export const RightSide = styled.div`
           order: 2;
         `}
 
-  img {
+  .browser-frame {
+    overflow: hidden;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 700px;
+    width: 800px;
+    box-shadow: 0px 0px 0px 0.5px rgba(0, 0, 0, 0.25),
+      0px 1px 0.5px 0px rgba(255, 255, 255, 0.6) inset,
+      0px 16px 48px 0px var(--shadows-drop-1, rgba(22, 25, 29, 0.03)),
+      0px 10px 18px 0px var(--shadows-drop-1, rgba(22, 25, 29, 0.03)),
+      0px 5px 8px 0px var(--shadows-drop-2, rgba(22, 25, 29, 0.04)),
+      0px 5.885px 6.636px 0px rgba(0, 0, 0, 0.04);
 
     ${({ imagePosition }) =>
       imagePosition === "left"
         ? css`
-            left: 0;
+            left: -100px;
+            border-top-right-radius: 12px;
+            border-bottom-right-radius: 12px;
           `
         : css`
-            right: 0;
+            right: -100px;
+            border-top-left-radius: 12px;
+            border-bottom-left-radius: 12px;
           `}
+
+    .browser-frame__body {
+      img {
+        width: 100%;
+      }
+    }
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     order: 2;
-    img {
+    .browser-frame {
       position: inherit;
       width: 100%;
       object-fit: contain;
       transform: translateY(0);
+      border-radius: 12px;
     }
   }
 `;

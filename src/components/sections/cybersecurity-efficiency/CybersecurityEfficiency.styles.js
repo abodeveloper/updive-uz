@@ -69,6 +69,13 @@ export const InfoNumber = styled.div`
   font-size: 40px;
   line-height: 48px;
   color: #fff;
+
+  .count {
+    font-family: "Inter-Bold";
+    font-size: 40px;
+    line-height: 48px;
+    color: #fff;
+  }
 `;
 
 export const InfoTitle = styled.div`
