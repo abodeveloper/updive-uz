@@ -3,6 +3,7 @@ import SectionTitle from "@/components/SectionTitle";
 import { motion } from "framer-motion";
 import { Container } from "react-bootstrap";
 import BrowserFrame from "react-browser-frame";
+import { useNavigate } from "react-router-dom";
 import {
   Bottom,
   ButtonsWrapper,
@@ -28,6 +29,8 @@ const ProductsInfo = ({
   description,
   info_data: INFO_DATA,
 }) => {
+  const navigate = useNavigate();
+
   return (
     <SectionWrapper imagePosition={imagePosition} background={background}>
       <MyBox>
@@ -41,8 +44,16 @@ const ProductsInfo = ({
                 description={description}
               />
               <ButtonsWrapper>
-                <CustomButton type="primary" title={"Get demo"} />
-                <CustomButton type="default" title={"Contacts"} />
+                <CustomButton
+                  onClick={() => navigate("/contacts")}
+                  type="primary"
+                  title={"Get demo"}
+                />
+                <CustomButton
+                  onClick={() => navigate("/contacts")}
+                  type="default"
+                  title={"Contacts"}
+                />
               </ButtonsWrapper>
             </LeftSide>
             <RightSide
@@ -82,13 +93,13 @@ export const InfoItem = ({ icon, title, description, animation }) => {
       initial={{
         opacity: 0,
         ...(animation === "left"
-          ? { x: -100 }
+          ? { x: -60 }
           : animation === "right"
-          ? { x: 100 }
+          ? { x: 60 }
           : animation === "bottom"
-          ? { y: 100 }
+          ? { y: 60 }
           : animation === "top"
-          ? { y: -100 }
+          ? { y: -60 }
           : {}),
       }}
       whileInView={{ opacity: 1, y: 0, x: 0 }}

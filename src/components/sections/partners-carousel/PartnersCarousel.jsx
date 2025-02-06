@@ -4,7 +4,7 @@ import Logo1 from "@/assets/images/partners-logo/ies.svg";
 import Logo5 from "@/assets/images/partners-logo/kiberxavfsizlik-mazkazi.svg";
 import Logo3 from "@/assets/images/partners-logo/milliy-gvardiya.svg";
 import Logo4 from "@/assets/images/partners-logo/mudofa-vazirligi.svg";
-import { Container, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import Slider from "react-slick";
 import { SectionWrapper, Title } from "./PartnersCarousel.styles";
 
@@ -12,15 +12,16 @@ const PartnersCarousel = () => {
   const settings = {
     className: "center",
     centerMode: true, // O‘rtadagi slaydni markazda qilish
-    infinite: true,
+    infinite: true, // Cheksiz aylanish
+    loop: true, // Cheksiz aylanish
     centerPadding: "150px", // O‘rtadagi slaydni markazda to‘liq ko‘rsatish
     slidesToShow: 3, // Faqat bitta slayd markazda ko‘rsatiladi
-    speed: 500,
-    autoplay: true, // Avtomatik almashish
-    autoplaySpeed: 3000, // Har 3 sekundda almashish
-    pauseOnHover: false, // Hover qilganda ham davom etish
-    dots: false, // Pastdagi nuqtalarni qo‘shish,
-    cssEase: "linear",
+    speed: 2000, // Slaydlarni sekin aylanishi uchun yuqori qiymat (ms)
+    autoplay: true, // Avtomatik aylanish
+    autoplaySpeed: 0, // Aylanishni doimiy qilish uchun 0
+    pauseOnHover: true, // Hoverda to'xtamasligi uchun
+    dots: false, // Pastdagi nuqtalarni qo‘shish
+    cssEase: "linear", // Tekis va uzluksiz harakat
     responsive: [
       {
         breakpoint: 768, // Mobil qurilmalar uchun
@@ -31,6 +32,9 @@ const PartnersCarousel = () => {
       },
     ],
   };
+
+
+
 
   const PARTNERS = [
     {
@@ -67,15 +71,6 @@ const PartnersCarousel = () => {
           <Slider {...settings}>
             {PARTNERS?.map((item, index) => (
               <div key={index}>
-                {/* <OverlayTrigger
-                  placement="top"
-                  delay={{ show: 150, hide: 150 }}
-                  overlay={
-                    <Tooltip id={`tooltip-${index}`}>{item.title}</Tooltip>
-                  }
-                >
-                  <img src={item.img} alt={item.title} />
-                </OverlayTrigger> */}
                 <img src={item.img} alt={item.title} />
               </div>
             ))}

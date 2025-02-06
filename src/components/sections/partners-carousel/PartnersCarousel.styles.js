@@ -33,9 +33,9 @@ export const SectionWrapper = styled.div`
 
     /* Yon tomondagi slaydlarni xiralashtirish */
     .slick-slide:not(.slick-center) {
-      transform: scale(0.9); /* 🔹 Kichraytirish */
-      opacity: 0.6; /* 🔹 Xiralashtirish */
-      transition: transform 0.5s ease, opacity 0.5s ease;
+     // transform: scale(0.9); /* 🔹 Kichraytirish */
+     //  opacity: 0.6; /* 🔹 Xiralashtirish */
+      //transition: transform 0.5s ease, opacity 0.5s ease;
     }
   }
 `;

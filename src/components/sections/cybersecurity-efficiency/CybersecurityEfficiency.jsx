@@ -3,6 +3,7 @@ import CustomButton from "@/components/CustomButton";
 import SectionTitle from "@/components/SectionTitle";
 import { Container } from "react-bootstrap";
 import CountUp from "react-countup";
+import { useNavigate } from "react-router-dom";
 import ReactVisibilitySensor from "react-visibility-sensor";
 import {
   Bottom,
@@ -18,6 +19,8 @@ import {
 } from "./CybersecurityEfficiency.styles";
 
 const CybersecurityEfficiency = () => {
+  const navigate = useNavigate();
+
   return (
     <SectionWrapper>
       <Container>
@@ -30,7 +33,7 @@ const CybersecurityEfficiency = () => {
               "Manage Your Organization's Security Ecosystem from a Single <br/> Dashboard with Updive's Scalable, Cloud-Based Cybersecurity Solution <br/> Tailored to Your Needs."
             }
           />
-          <CustomButton>
+          <CustomButton onClick={() => navigate("/contacts")}>
             Get in touch <img src={Arrow} alt="" />
           </CustomButton>
         </Top>

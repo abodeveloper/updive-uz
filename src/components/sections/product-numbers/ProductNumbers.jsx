@@ -3,6 +3,7 @@ import SectionTitle from "@/components/SectionTitle";
 import { get } from "lodash";
 import { Container } from "react-bootstrap";
 import CountUp from "react-countup";
+import { useNavigate } from "react-router-dom";
 import ReactVisibilitySensor from "react-visibility-sensor";
 import {
   Bottom,
@@ -20,6 +21,8 @@ import {
 const ProductNumbers = ({ data }) => {
   const { title, topTitle, description, left, center, right } = data;
 
+  const navigate = useNavigate();
+
   return (
     <SectionWrapper>
       <Container>
@@ -29,7 +32,11 @@ const ProductNumbers = ({ data }) => {
             title={title}
             description={description}
           />
-          <CustomButton type="primary" title={"Get started"} />
+          <CustomButton
+            onClick={() => navigate("/contacts")}
+            type="primary"
+            title={"Get started"}
+          />
         </Top>
         <Bottom>
           <InfoWrapper>

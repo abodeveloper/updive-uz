@@ -1,7 +1,7 @@
 import HomeHeaderImage from "@/assets/images/home-header-image.svg";
+import DlpImage from "@/assets/images/product-carousel-images/dlp/dlp-crl-image-1.png";
 import DlpIcon2 from "@/assets/images/products-info/alarm-warning.svg";
 import SiemIcon2 from "@/assets/images/products-info/code-s-slash-fill.svg";
-import DlpImage from "@/assets/images/product-carousel-images/dlp/dlp-crl-image-1.png";
 //import DlpImage from "@/assets/images/products-info/dlp-img.png";
 //import SiemImage from "@/assets/images/products-info/siem-img.png";
 import SiemImage from "@/assets/images/product-carousel-images/siem/siem-crl-image-1.png";
@@ -30,7 +30,7 @@ const Home = () => {
       "Updive DLP (Data Loss Prevention) is a cutting-edge solution designed to safeguard sensitive information, prevent unauthorized access, and ensure compliance with data protection standards. Empower your business with tools to monitor, detect, and mitigate risks, securing your critical assets and maintaining trust.",
     info_data: [
       {
-        animation: "left",
+        animation: "bottom",
         icon: DlpIcon1,
         title: "Data Monitoring and Protection",
         description:
@@ -44,7 +44,7 @@ const Home = () => {
           "Detect and respond to threats in real time using intelligent alerts that minimize risks and reduce potential damage.",
       },
       {
-        animation: "right",
+        animation: "bottom",
         icon: DlpIcon3,
         title: "Access Control and Encryption",
         description:
@@ -62,7 +62,7 @@ const Home = () => {
       "Updive SIEM provides advanced security monitoring, real-time threat detection, and comprehensive analysis to safeguard your business infrastructure. With proactive threat identification and seamless integration, Updive SIEM helps you manage, detect, and respond to security incidents before they become serious threats.",
     info_data: [
       {
-        animation: "left",
+        animation: "bottom",
         icon: SiemIcon1,
         title: "Real-Time Threat Detection",
         description:
@@ -76,7 +76,7 @@ const Home = () => {
           "Collect, analyze, and securely store logs for better security visibility and to meet industry compliance requirements.",
       },
       {
-        animation: "right",
+        animation: "bottom",
         icon: SiemIcon3,
         title: "Incident Response Automation",
         description:
@@ -90,9 +90,9 @@ const Home = () => {
       <Navbar />
       <PageHeader
         image={HomeHeaderImage}
-        title={"Stay Connected with <br/> Updive"}
+        title={"Protect Your Business with <br/> Confidence"}
         description={
-          "Reach out to our team for expert guidance, technical support, or <br/> personalized solutions tailored to your business needs."
+          "Comprehensive Solutions to Shield Your Operations from <br/> Modern Threats"
         }
         imageStyle={{}}
       />

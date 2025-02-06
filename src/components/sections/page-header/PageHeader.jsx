@@ -1,5 +1,7 @@
 import CustomButton from "@/components/CustomButton";
 import { Container } from "react-bootstrap";
+import { Fade } from "react-reveal";
+import { useNavigate } from "react-router-dom";
 import {
   Content,
   Description,
@@ -7,9 +9,10 @@ import {
   SectionWrapper,
   Title,
 } from "./PageHeader.styles";
-import { Fade } from "react-reveal";
 
 const PageHeader = ({ image, title, description, imageStyle }) => {
+  const navigate = useNavigate();
+
   return (
     <SectionWrapper>
       <Container>
@@ -24,7 +27,11 @@ const PageHeader = ({ image, title, description, imageStyle }) => {
             <Description dangerouslySetInnerHTML={{ __html: description }} />
           </Fade>
           <Fade duration={1000} delay={700}>
-            <CustomButton title={"Get started"} type="primary" />
+            <CustomButton
+              onClick={() => navigate("/contacts")}
+              title={"Get started"}
+              type="primary"
+            />
           </Fade>
         </Content>
       </Container>
