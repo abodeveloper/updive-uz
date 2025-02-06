@@ -221,10 +221,8 @@ const ProductPage = () => {
       <Navbar />
       <PageHeader
         image={get(data, "image")}
-        title={"Stay Connected with <br/> Updive"}
-        description={
-          "Reach out to our team for expert guidance, technical support, or <br/> personalized solutions tailored to your business needs."
-        }
+        title={get(data, "title")}
+        description={get(data, "description")}
       />
       <ProductCarousel
         images={get(data, "images", [])}
