@@ -49,12 +49,8 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
   }
 
-  body {}
-    /* background-color: ${({ theme }) => theme.colors.background};
-    color: ${({ theme }) => theme.colors.text};
-    font-family: ${({ theme }) => theme.typography.fontFamily};
-    font-size: ${({ theme }) => theme.typography.fontSize};
-    font-weight: ${({ theme }) => theme.typography.fontWeight}; */
+  body {
+    
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {

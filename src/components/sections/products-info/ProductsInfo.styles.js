@@ -106,6 +106,12 @@ export const RightSide = styled.div`
     }
   }
 
+  @media (min-width: 1500px) {
+    .browser-frame {
+      width: 900px;
+    }
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     order: 2;
     .browser-frame {

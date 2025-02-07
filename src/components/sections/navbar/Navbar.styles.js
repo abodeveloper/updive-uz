@@ -70,7 +70,7 @@ export const DropdownMenu = styled(motion.div)`
 
 export const DropdownItem = styled.div`
   cursor: pointer;
-  width: 45vw;
+  width: 500px;
   padding: 15px;
   border-radius: 16px;
   transition: 0.2s all ease;
