@@ -27,16 +27,15 @@ import {
 import ArrowDown from "@/assets/images/arrow-down.svg";
 import MobileLogo from "@/assets/images/mobile-navbar-logo.svg";
 import LogoDlp from "@/assets/images/navbar-dlp-logo.svg";
-//import { default as DlpImage } from "@/assets/images/navbar-dlp.svg";
-import SiemImage from "@/assets/images/product-carousel-images/siem/siem-crl-image-1.png";
-import DlpImage from "@/assets/images/product-carousel-images/dlp/dlp-crl-image-1.png";
 import ServiceImg from "@/assets/images/navbar-service.svg";
 import LogoSiem from "@/assets/images/navbar-siem-logo.svg";
+import DlpImage from "@/assets/images/product-carousel-images/dlp/dlp-crl-image-1.png";
+import SiemImage from "@/assets/images/product-carousel-images/siem/siem-crl-image-1.png";
 import ContactImg from "@/assets/images/user-smile.svg";
 import CustomButton from "@/components/CustomButton";
 import Hamburger from "@/components/Hamburger";
 import { AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
@@ -44,6 +43,25 @@ const Navbar = () => {
 
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+
+  const hoverTimer = useRef(null);
+
+  const handleMouseEnter = () => {
+    if (hoverTimer.current) clearTimeout(hoverTimer.current);
+
+    hoverTimer.current = setTimeout(() => {
+      setIsOpen(true);
+    }, 200);
+  };
+
+  const handleMouseLeave = () => {
+    if (hoverTimer.current) {
+      clearTimeout(hoverTimer.current);
+      hoverTimer.current = setTimeout(() => {
+        setIsOpen(false);
+      }, 200);
+    }
+  };
 
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -55,9 +73,6 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const handleMouseEnter = () => setIsOpen(true);
-  const handleMouseLeave = () => setIsOpen(false);
 
   return (
     <>

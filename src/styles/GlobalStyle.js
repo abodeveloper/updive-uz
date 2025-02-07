@@ -49,7 +49,7 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
   }
 
-  body {
+  body {}
     /* background-color: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.text};
     font-family: ${({ theme }) => theme.typography.fontFamily};

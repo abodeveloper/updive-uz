@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const DesktopNavbarWrapper = styled.div`
+  width: 100%;
   background-color: ${({ theme }) => theme.colors.background.bgPrimary};
   height: 80px;
   display: flex;
@@ -10,11 +11,10 @@ export const DesktopNavbarWrapper = styled.div`
   position: sticky;
   top: 0;
   z-index: 100;
-  transition: 0.2s all ease;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 
   ${({ isScrolled }) =>
-    isScrolled &&
-    `box-shadow: 0px -0.5px 0px 0px rgba(22, 25, 29, 0.12) inset, 0px 1px 2px -0.5px var(--shadows-drop-2, rgba(22, 25, 29, 0.04));`}
+    isScrolled && `box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);`}
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     display: none;
@@ -175,10 +175,11 @@ export const MobileContent = styled.div`
 `;
 
 export const Overlay = styled(motion.div)`
+  width: 100vw;
   position: fixed;
   top: 80px;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
   z-index: 5;
@@ -188,7 +189,7 @@ export const MenuWrapper = styled(motion.div)`
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   background: white;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   z-index: 5;
