@@ -8,18 +8,24 @@ export const Button = styled.button`
 
   min-height: 32px;
   padding: 0 10px;
-  transition: background-color 0.2s ease;
+  transition: 0.2s ease;
   border-radius: 8px;
   border: 0.5px solid rgba(48, 48, 48, 0.2);
+
   box-shadow: 0px -0.5px 0px 0px rgba(22, 25, 29, 0.12) inset,
     0px 1px 2px -0.5px var(--shadows-drop-2, rgba(22, 25, 29, 0.04));
 
   ${({ type }) =>
     type === "primary"
       ? css`
-          background-color: ${({ theme }) => theme.colors.primary};
+          background: linear-gradient(180deg, #6199ff 0%, #045cfb 100%);
           &:hover {
-            background-color: ${({ theme }) => theme.colors.primaryDark};
+            background: linear-gradient(
+                0deg,
+                rgba(255, 255, 255, 0.2) 0%,
+                rgba(255, 255, 255, 0.2) 100%
+              ),
+              linear-gradient(180deg, #6199ff 0%, #045cfb 100%);
           }
         `
       : css`
