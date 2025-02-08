@@ -16,7 +16,7 @@ import Navbar from "@/components/sections/navbar";
 import PartnersCarousel from "@/components/sections/partners-carousel";
 import ProductsInfo from "@/components/sections/products-info";
 import { PageWrapper } from "./Home.styles";
-import AuroraBackground from "@/components/AuroRaBackground";
+import AuroraBackground from "@/components/AuroraBackground";
 
 const Home = () => {
   const DLP_DATA = {

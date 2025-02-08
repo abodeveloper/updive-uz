@@ -1,5 +1,5 @@
 import HomeHeaderImage from "@/assets/images/home-header-image.svg";
-import AuroraBackground from "@/components/AuroRaBackground";
+import AuroraBackground from "@/components/AuroraBackground";
 import BusinessEfficiency from "@/components/sections/business-efficiency";
 import ContactForm from "@/components/sections/contact-form";
 import Footer from "@/components/sections/footer";

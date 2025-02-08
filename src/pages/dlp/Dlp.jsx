@@ -19,7 +19,7 @@ import DlpCarouselImage1 from "@/assets/images/product-carousel-images/dlp/dlp-c
 import DlpCarouselImage2 from "@/assets/images/product-carousel-images/dlp/dlp-crl-image-2.png";
 import DlpCarouselImage3 from "@/assets/images/product-carousel-images/dlp/dlp-crl-image-3.png";
 import DlpCarouselImage4 from "@/assets/images/product-carousel-images/dlp/dlp-crl-image-4.png";
-import AuroraBackground from "@/components/AuroRaBackground";
+import AuroraBackground from "@/components/AuroraBackground";
 
 const Dlp = () => {
   const data = {
