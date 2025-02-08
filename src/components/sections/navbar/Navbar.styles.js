@@ -4,17 +4,20 @@ import styled from "styled-components";
 
 export const DesktopNavbarWrapper = styled.div`
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.background.bgPrimary};
   height: 80px;
   display: flex;
   align-items: center;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 100;
   transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 
-  ${({ isScrolled }) =>
-    isScrolled && `box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);`}
+  ${({ isScrolled, theme }) =>
+    isScrolled &&
+    `
+      background-color: ${theme.colors.background.bgPrimary};
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    `}
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     display: none;
@@ -100,7 +103,7 @@ export const DropdownItemTopRight = styled.div`
 export const DropdownItemTopRightTitle = styled.div`
   color: ${({ theme }) => theme.colors.text.textPrimary};
   font-family: "Inter";
-  font-size: 22px;
+  font-size: 18px;
   line-height: 30px;
   letter-spacing: -0.24px;
 `;
@@ -108,7 +111,7 @@ export const DropdownItemTopRightTitle = styled.div`
 export const DropdownItemTopRightDescription = styled.div`
   color: ${({ theme }) => theme.colors.text.textSecondary};
   font-family: "Inter-Light";
-  font-size: 18px;
+  font-size: 15px;
   line-height: 28px;
   letter-spacing: -0.24px;
 `;
@@ -150,17 +153,25 @@ export const StyledLink = styled(Link)`
 
 export const MobileNavbarWrapper = styled.div`
   display: none;
-  width: 100%;
+  width: 100% !important;
   overflow: hidden;
-  background-color: ${({ theme }) => theme.colors.background.bgPrimary};
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1000;
   transition: 0.2s all ease;
 
-  ${({ isScrolled }) =>
+  ${({ isScrolled, theme }) =>
     isScrolled &&
-    `box-shadow: 0px -0.5px 0px 0px rgba(22, 25, 29, 0.12) inset, 0px 1px 2px -0.5px var(--shadows-drop-2, rgba(22, 25, 29, 0.04));`}
+    `
+      background-color: ${theme.colors.background.bgPrimary};
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    `}
+
+  ${({ isOpenMenu, theme }) =>
+    isOpenMenu &&
+    `
+      background-color: ${theme.colors.background.bgPrimary};
+    `}
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     display: block;

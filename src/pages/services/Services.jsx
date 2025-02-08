@@ -1,4 +1,5 @@
 import HomeHeaderImage from "@/assets/images/home-header-image.svg";
+import AuroraBackground from "@/components/AuroRaBackground";
 import BusinessEfficiency from "@/components/sections/business-efficiency";
 import ContactForm from "@/components/sections/contact-form";
 import Footer from "@/components/sections/footer";
@@ -8,15 +9,17 @@ import PageHeader from "@/components/sections/page-header";
 const Services = () => {
   return (
     <>
-      <Navbar />
-      <PageHeader
-        image={HomeHeaderImage}
-        title={"Unleashing the Power <br/> of Updive"}
-        description={
-          "Discover the key features that make Updive the ultimate solution for <br/> robust, efficient, and intelligent security management."
-        }
-        imageStyle={{}}
-      />
+      <AuroraBackground>
+        <Navbar />
+        <PageHeader
+          image={HomeHeaderImage}
+          title={"Unleashing the Power <br/> of Updive"}
+          description={
+            "Discover the key features that make Updive the ultimate solution for <br/> robust, efficient, and intelligent security management."
+          }
+          imageStyle={{}}
+        />
+      </AuroraBackground>
       <BusinessEfficiency />
       <ContactForm />
       <Footer />

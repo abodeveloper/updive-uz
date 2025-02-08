@@ -7,26 +7,49 @@ import Logo4 from "@/assets/images/partners-logo/mudofa-vazirligi.svg";
 import { Container } from "react-bootstrap";
 import Slider from "react-slick";
 import { SectionWrapper, Title } from "./PartnersCarousel.styles";
+import { useEffect, useRef } from "react";
 
 const PartnersCarousel = () => {
+  const sliderRef = useRef(null);
+
+  useEffect(() => {
+    const sliderTrack = document.querySelector(".slick-track");
+
+    if (sliderTrack) {
+      sliderTrack.style.transition = "none"; // Smooth pause uchun transitionni o‘chiramiz
+    }
+  }, []);
+
+  const handleMouseEnter = () => {
+    const sliderTrack = document.querySelector(".slick-track");
+    if (sliderTrack) {
+      sliderTrack.style.animationPlayState = "paused"; // Darhol to‘xtaydi
+    }
+  };
+
+  const handleMouseLeave = () => {
+    const sliderTrack = document.querySelector(".slick-track");
+    if (sliderTrack) {
+      sliderTrack.style.animationPlayState = "running"; // Davom etadi
+    }
+  };
+
   const settings = {
-    className: "center",
-    centerMode: true, // O‘rtadagi slaydni markazda qilish
     infinite: true,
-    centerPadding: "150px", // O‘rtadagi slaydni markazda to‘liq ko‘rsatish
-    slidesToShow: 3, // Faqat bitta slayd markazda ko‘rsatiladi
-    speed: 500,
-    autoplay: true, // Avtomatik almashish
-    autoplaySpeed: 3000, // Har 3 sekundda almashish
-    pauseOnHover: false, // Hover qilganda ham davom etish
-    dots: false, // Pastdagi nuqtalarni qo‘shish,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    speed: 10000,
+    autoplay: true,
+    autoplaySpeed: 0,
+    pauseOnHover: false, // ❌ Buning o'rniga custom pause ishlatamiz
+    arrows: false,
+    dots: false,
     cssEase: "linear",
     responsive: [
       {
-        breakpoint: 768, // Mobil qurilmalar uchun
+        breakpoint: 768,
         settings: {
-          slidesToShow: 3, // Mobilda bitta slayd ko‘rsatiladi
-          centerPadding: "0px", // Mobilda slaydlar o‘rtada to‘liq ko‘rsatiladi
+          slidesToShow: 3,
         },
       },
     ],
@@ -34,40 +57,52 @@ const PartnersCarousel = () => {
 
   const PARTNERS = [
     {
-      title: "“ISSIQLIK ELЕKTR STANSIYALARI” AKSIYADORLIK JAMIYATI",
+      title: "“IES” aksiyadorlik jamiyati",
       img: Logo1,
     },
     {
-      title: "IES",
+      title: "Ichki ishlar vazirligi",
       img: Logo2,
     },
     {
-      title: "IES",
+      title: "Miliy gvardiya",
       img: Logo3,
     },
     {
-      title: "IES",
+      title: "Mudofa vazirligi",
       img: Logo4,
     },
     {
-      title: "IES",
+      title: "Kiberxavfsizlik markazi",
       img: Logo5,
     },
     {
-      title: "IES",
+      title: "Buxoro gaz",
       img: Logo6,
     },
+  ];
+
+  const EXTENDED_PARTNERS = [
+    ...PARTNERS,
+    ...PARTNERS,
+    ...PARTNERS,
+    ...PARTNERS,
   ];
 
   return (
     <SectionWrapper>
       <Container>
         <Title>Trusted by thousands of teams</Title>
-        <div className="slider-container">
-          <Slider {...settings}>
-            {PARTNERS?.map((item, index) => (
-              <div key={index}>
+        <div
+          className="slider-container"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <Slider ref={(slider) => (sliderRef.current = slider)} {...settings}>
+            {EXTENDED_PARTNERS.map((item, index) => (
+              <div key={index} className="img-box">
                 <img src={item.img} alt={item.title} />
+                <div className="hover-text">{item.title}</div>
               </div>
             ))}
           </Slider>

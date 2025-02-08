@@ -1,4 +1,3 @@
-import HomeHeaderImage from "@/assets/images/home-header-image.svg";
 import DlpImage from "@/assets/images/product-carousel-images/dlp/dlp-crl-image-1.png";
 import SiemImage from "@/assets/images/product-carousel-images/siem/siem-crl-image-1.png";
 import DlpIcon2 from "@/assets/images/products-info/alarm-warning.svg";
@@ -12,11 +11,12 @@ import CybersecurityEfficiency from "@/components/sections/cybersecurity-efficie
 import Faq from "@/components/sections/faq";
 import Features from "@/components/sections/feature";
 import Footer from "@/components/sections/footer";
+import HeroSection from "@/components/sections/hero-section";
 import Navbar from "@/components/sections/navbar";
-import PageHeader from "@/components/sections/page-header";
 import PartnersCarousel from "@/components/sections/partners-carousel";
 import ProductsInfo from "@/components/sections/products-info";
 import { PageWrapper } from "./Home.styles";
+import AuroraBackground from "@/components/AuroRaBackground";
 
 const Home = () => {
   const DLP_DATA = {
@@ -85,15 +85,10 @@ const Home = () => {
 
   return (
     <PageWrapper>
-      <Navbar />
-      <PageHeader
-        image={HomeHeaderImage}
-        title={"Protect Your Business with <br/> Confidence"}
-        description={
-          "Comprehensive Solutions to Shield Your Operations from <br/> Modern Threats"
-        }
-        imageStyle={{}}
-      />
+      <AuroraBackground>
+        <Navbar />
+        <HeroSection />
+      </AuroraBackground>
       <PartnersCarousel />
       <Features />
       <ProductsInfo background="primary" imagePosition="right" {...DLP_DATA} />

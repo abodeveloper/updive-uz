@@ -19,6 +19,7 @@ import DlpCarouselImage1 from "@/assets/images/product-carousel-images/dlp/dlp-c
 import DlpCarouselImage2 from "@/assets/images/product-carousel-images/dlp/dlp-crl-image-2.png";
 import DlpCarouselImage3 from "@/assets/images/product-carousel-images/dlp/dlp-crl-image-3.png";
 import DlpCarouselImage4 from "@/assets/images/product-carousel-images/dlp/dlp-crl-image-4.png";
+import AuroraBackground from "@/components/AuroRaBackground";
 
 const Dlp = () => {
   const data = {
@@ -110,12 +111,15 @@ const Dlp = () => {
 
   return (
     <>
-      <Navbar />
-      <PageHeader
-        image={get(data, "image")}
-        title={get(data, "title")}
-        description={get(data, "description")}
-      />
+      <AuroraBackground>
+        <Navbar />
+        <PageHeader
+          image={get(data, "image")}
+          title={get(data, "title")}
+          description={get(data, "description")}
+        />
+      </AuroraBackground>
+
       <ProductCarousel
         images={get(data, "images", [])}
         url={get(data, "url")}

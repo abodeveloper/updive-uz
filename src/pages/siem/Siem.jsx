@@ -18,9 +18,9 @@ import SiemFeatureIcon3 from "@/assets/images/product-feature-icons/link.svg";
 import SiemFeatureIcon5 from "@/assets/images/product-feature-icons/settings-6.svg";
 import SiemFeatureIcon4 from "@/assets/images/product-feature-icons/shield-flash.svg";
 import SiemFeatureIcon6 from "@/assets/images/product-feature-icons/tree.svg";
+import AuroraBackground from "@/components/AuroRaBackground";
 
 const Siem = () => {
-  
   const data = {
     image: SiemHeaderImage,
     title: "Centralized Security, Simplified <br/> Management",
@@ -110,12 +110,15 @@ const Siem = () => {
 
   return (
     <>
-      <Navbar />
-      <PageHeader
-        image={get(data, "image")}
-        title={get(data, "title")}
-        description={get(data, "description")}
-      />
+      <AuroraBackground>
+        <Navbar />
+        <PageHeader
+          image={get(data, "image")}
+          title={get(data, "title")}
+          description={get(data, "description")}
+        />
+      </AuroraBackground>
+
       <ProductCarousel
         images={get(data, "images", [])}
         url={get(data, "url")}

@@ -50,7 +50,6 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {

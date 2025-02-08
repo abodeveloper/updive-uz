@@ -24,18 +24,39 @@ export const SectionWrapper = styled.div`
       outline: none !important;
     }
     .slick-slide {
-      transition: transform 0.5s ease, opacity 0.5s ease;
-      transform: scale(1);
       display: flex;
       align-items: center;
       justify-content: center;
+      padding-top: 40px;
+      position: relative;
+
+      .img-box {
+        &:hover .hover-text {
+          opacity: 1;
+        }
+
+        .hover-text {
+          width: 100%;
+          border-radius: 10px;
+          background-color: #131313;
+          padding: 5px;
+          position: absolute;
+          top: 0px;
+          left: 50%;
+          transform: translateX(-50%);
+          opacity: 0;
+          transition: 0.2s all linear;
+          text-align: center;
+          color: #ffff;
+          font-family: "Inter-Light";
+          font-size: 10px;
+        }
+      }
     }
 
     /* Yon tomondagi slaydlarni xiralashtirish */
     .slick-slide:not(.slick-center) {
-      transform: scale(0.9); /* 🔹 Kichraytirish */
-      opacity: 0.6; /* 🔹 Xiralashtirish */
-      transition: transform 0.5s ease, opacity 0.5s ease;
+      
     }
   }
 `;

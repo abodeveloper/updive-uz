@@ -172,7 +172,7 @@ const Navbar = () => {
           </Top>
         </Container>
       </DesktopNavbarWrapper>
-      <MobileNavbarWrapper isScrolled={isScrolled}>
+      <MobileNavbarWrapper isScrolled={isScrolled} isOpenMenu={isOpenMenu}>
         <Container>
           <MobileContent>
             <img src={MobileLogo} alt="Logo" />
