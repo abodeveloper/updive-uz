@@ -27,7 +27,7 @@ const Siem = () => {
     description:
       "Monitor, analyze, and respond to threats in real time with Updive SIEM’s intelligent, unified security platform.",
     features: {
-      topTitle: "Automation",
+      topTitle: "Intelligent Management ",
       title: "Powerful Features That <br/> Redefine Security",
       description:
         "Explore the innovative capabilities of Updive SIEM, designed to <br/> strengthen protection and simplify your security operations.",
@@ -71,7 +71,7 @@ const Siem = () => {
       ],
     },
     numbers: {
-      topTitle: "Automation",
+      topTitle: "System Efficiency",
       title: "Updive SIEM by the <br/> Numbers",
       description:
         "Explore impactful metrics that showcase Updive SIEM’s efficiency in detecting threats and safeguarding your infrastructure.",

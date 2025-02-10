@@ -28,7 +28,7 @@ const Dlp = () => {
     description:
       "Prevent data breaches, monitor sensitive information, and <br/> ensure compliance with Updive DLP’s advanced protection and control solutions.",
     features: {
-      topTitle: "Automation",
+      topTitle: "Security Solutions",
       title: "Discover the Features That <br/> Set Updive Apart",
       description:
         "Explore six powerful tools designed to enhance security, streamline <br/> operations, and drive your business toward success.",
@@ -72,7 +72,7 @@ const Dlp = () => {
       ],
     },
     numbers: {
-      topTitle: "Automation",
+      topTitle: "System Efficiency",
       title: "Updive DLP by the <br/> Numbers",
       description:
         "Explore key metrics that showcase our commitment to cybersecurity, <br/> reliability, and the unparalleled performance of our solutions.",

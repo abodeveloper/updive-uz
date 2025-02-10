@@ -1,112 +1,93 @@
-import Logo6 from "@/assets/images/partners-logo/buxoro-gaz.svg";
 import Logo2 from "@/assets/images/partners-logo/ichki-ishlar-vazirligi.svg";
 import Logo1 from "@/assets/images/partners-logo/ies.svg";
 import Logo5 from "@/assets/images/partners-logo/kiberxavfsizlik-mazkazi.svg";
 import Logo3 from "@/assets/images/partners-logo/milliy-gvardiya.svg";
 import Logo4 from "@/assets/images/partners-logo/mudofa-vazirligi.svg";
+import Logo6 from "@/assets/images/partners-logo/neft-gaz.svg";
+import "keen-slider/keen-slider.min.css";
+import { useKeenSlider } from "keen-slider/react";
+import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import Slider from "react-slick";
-import { SectionWrapper, Title } from "./PartnersCarousel.styles";
-import { useEffect, useRef } from "react";
+import { BoxWrapper, SectionWrapper, Title } from "./PartnersCarousel.styles";
+
+const animation = { duration: 15000, easing: (t) => t };
 
 const PartnersCarousel = () => {
-  const sliderRef = useRef(null);
+  const [slidesPerView, setSlidesPerView] = useState(5);
 
   useEffect(() => {
-    const sliderTrack = document.querySelector(".slick-track");
+    const updateSlidesPerView = () => {
+      setSlidesPerView(window.innerWidth < 768 ? 3 : 5);
+    };
 
-    if (sliderTrack) {
-      sliderTrack.style.transition = "none"; // Smooth pause uchun transitionni o‘chiramiz
-    }
+    window.addEventListener("resize", updateSlidesPerView);
+
+    return () => window.removeEventListener("resize", updateSlidesPerView);
   }, []);
 
-  const handleMouseEnter = () => {
-    const sliderTrack = document.querySelector(".slick-track");
-    if (sliderTrack) {
-      sliderTrack.style.animationPlayState = "paused"; // Darhol to‘xtaydi
-    }
-  };
+  const [sliderRefDesktop] = useKeenSlider({
+    loop: true,
+    renderMode: "performance",
+    drag: false,
+    slides: { perView: 5, spacing: 20 },
+    created(s) {
+      s.moveToIdx(5, true, animation);
+    },
+    updated(s) {
+      s.moveToIdx(s.track.details.abs + 5, true, animation);
+    },
+    animationEnded(s) {
+      s.moveToIdx(s.track.details.abs + 5, true, animation);
+    },
+  });
 
-  const handleMouseLeave = () => {
-    const sliderTrack = document.querySelector(".slick-track");
-    if (sliderTrack) {
-      sliderTrack.style.animationPlayState = "running"; // Davom etadi
-    }
-  };
-
-  const settings = {
-    infinite: true,
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    speed: 10000,
-    autoplay: true,
-    autoplaySpeed: 0,
-    pauseOnHover: false, // ❌ Buning o'rniga custom pause ishlatamiz
-    arrows: false,
-    dots: false,
-    cssEase: "linear",
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-    ],
-  };
+  const [sliderRefMobile] = useKeenSlider({
+    loop: true,
+    renderMode: "performance",
+    drag: false,
+    slides: { perView: 3, spacing: 20 },
+    created(s) {
+      s.moveToIdx(5, true, animation);
+    },
+    updated(s) {
+      s.moveToIdx(s.track.details.abs + 5, true, animation);
+    },
+    animationEnded(s) {
+      s.moveToIdx(s.track.details.abs + 5, true, animation);
+    },
+  });
 
   const PARTNERS = [
     {
-      title: "“IES” aksiyadorlik jamiyati",
+      title: "“Issiqlik Elektr Stansiyalari” Aksiyadorlik Jamiyati",
       img: Logo1,
     },
-    {
-      title: "Ichki ishlar vazirligi",
-      img: Logo2,
-    },
-    {
-      title: "Miliy gvardiya",
-      img: Logo3,
-    },
-    {
-      title: "Mudofa vazirligi",
-      img: Logo4,
-    },
-    {
-      title: "Kiberxavfsizlik markazi",
-      img: Logo5,
-    },
-    {
-      title: "Buxoro gaz",
-      img: Logo6,
-    },
-  ];
-
-  const EXTENDED_PARTNERS = [
-    ...PARTNERS,
-    ...PARTNERS,
-    ...PARTNERS,
-    ...PARTNERS,
+    { title: "O'zbekiston Respublikasi Ichki Ishlar Vazirligi", img: Logo2 },
+    { title: "O‘zbekiston Respublikasi Milliy gvardiyasi", img: Logo3 },
+    { title: "O'zbekiston Respublikasi Mudofaa vazirligi", img: Logo4 },
+    { title: "Kiberxavfsizlik markazi", img: Logo5 },
+    { title: "“Uzbekneftgaz” Aksiyadorlik Jamiyati", img: Logo6 },
   ];
 
   return (
     <SectionWrapper>
       <Container>
-        <Title>Trusted by thousands of teams</Title>
-        <div
-          className="slider-container"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          <Slider ref={(slider) => (sliderRef.current = slider)} {...settings}>
-            {EXTENDED_PARTNERS.map((item, index) => (
-              <div key={index} className="img-box">
-                <img src={item.img} alt={item.title} />
-                <div className="hover-text">{item.title}</div>
+        <BoxWrapper>
+          <Title>Trusted by thousands of teams</Title>
+          <div
+            ref={slidesPerView == "5" ? sliderRefDesktop : sliderRefMobile}
+            className="keen-slider"
+          >
+            {PARTNERS.map((item, index) => (
+              <div className="keen-slider__slide" key={index}>
+                <div className="img-box">
+                  <img src={item.img} alt={item.title} />
+                  <div className="hover-text">{item.title}</div>
+                </div>
               </div>
             ))}
-          </Slider>
-        </div>
+          </div>
+        </BoxWrapper>
       </Container>
     </SectionWrapper>
   );

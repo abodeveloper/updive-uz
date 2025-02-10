@@ -27,7 +27,7 @@ const CybersecurityEfficiency = () => {
         <Top>
           <SectionTitle
             mode="dark"
-            topTitle="Automation"
+            topTitle="Cyber Defense"
             title="Boost Your Cybersecurity <br/> Efficiency"
             description={
               "Manage Your Organization's Security Ecosystem from a Single <br/> Dashboard with Updive's Scalable, Cloud-Based Cybersecurity Solution <br/> Tailored to Your Needs."

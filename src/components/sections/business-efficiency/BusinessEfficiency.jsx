@@ -63,7 +63,7 @@ const BusinessEfficiency = () => {
         <Top>
           <SectionTitle
             justify="start"
-            topTitle="Automation"
+            topTitle="Business Optimization"
             title="Boost your business <br/> efficiency"
             description={
               "Manage Your Entire Business Ecosystem from a Single Dashboard with <br/> Our Scalable, Cloud-Based SaaS Solution Tailored to Your Needs."

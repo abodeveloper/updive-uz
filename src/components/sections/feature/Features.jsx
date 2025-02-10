@@ -62,7 +62,7 @@ const Features = () => {
       <Container>
         <Top className="top">
           <SectionTitle
-            topTitle="Automation"
+            topTitle="Smart Solutions"
             title="Empowering Your Business <br/> with Unmatched Features"
             description={
               "Discover six powerful tools designed to streamline operations, enhance <br/> security, and drive your business toward success."

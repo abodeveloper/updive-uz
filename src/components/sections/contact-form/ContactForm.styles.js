@@ -1,5 +1,5 @@
 import { Form } from "react-bootstrap";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const SectionWrapper = styled.div`
   padding: 120px 0;
@@ -21,6 +21,15 @@ export const Wrapper = styled.div`
   }
 `;
 
+const rotate = keyframes`
+  from {
+    transform: translate(-50%, -50%) scale(1.4) rotate(0turn);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1.4) rotate(1turn);
+  }
+`;
+
 export const StyledForm = styled(Form)`
   background-color: ${({ theme }) => theme.colors.background.bgPrimary};
   padding: 32px;
@@ -34,12 +43,41 @@ export const StyledForm = styled(Form)`
     padding: 16px;
     padding-top: 40px;
   }
+
+  --offset: 2px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    background: conic-gradient(transparent 270deg, #70a1ff, transparent);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    aspect-ratio: 1;
+    width: 100%;
+    animation: ${rotate} 10s linear infinite;
+    z-index: 0;
+  }
+
+  &::after {
+    content: "";
+    background: inherit;
+    border-radius: inherit;
+    position: absolute;
+    inset: var(--offset);
+    height: calc(100% - 2 * var(--offset));
+    width: calc(100% - 2 * var(--offset));
+    z-index: 0;
+  }
 `;
 
 export const LeftSide = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  z-index: 1;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     align-items: center;
@@ -63,6 +101,7 @@ export const RightSide = styled.div`
   justify-content: center;
   flex-direction: column;
   gap: 16px;
+  z-index: 1;
 
   .form-label {
     margin-bottom: 10px;

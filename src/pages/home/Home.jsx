@@ -6,6 +6,7 @@ import SiemIcon3 from "@/assets/images/products-info/flashlight.svg";
 import DlpIcon3 from "@/assets/images/products-info/key.svg";
 import SiemIcon1 from "@/assets/images/products-info/search.svg";
 import DlpIcon1 from "@/assets/images/products-info/shield-flash.svg";
+import AuroraBackground from "@/components/AuroraBackground";
 import ContactForm from "@/components/sections/contact-form";
 import CybersecurityEfficiency from "@/components/sections/cybersecurity-efficiency";
 import Faq from "@/components/sections/faq";
@@ -16,12 +17,11 @@ import Navbar from "@/components/sections/navbar";
 import PartnersCarousel from "@/components/sections/partners-carousel";
 import ProductsInfo from "@/components/sections/products-info";
 import { PageWrapper } from "./Home.styles";
-import AuroraBackground from "@/components/AuroraBackground";
 
 const Home = () => {
   const DLP_DATA = {
     image: DlpImage,
-    topTitle: "Automation",
+    topTitle: "Data Security",
     title: "Updive DLP",
     url: "updive-dlp.uz",
     description:
@@ -54,7 +54,7 @@ const Home = () => {
   const SIEM_DATA = {
     url: "updive-siem.uz",
     image: SiemImage,
-    topTitle: "Automation",
+    topTitle: "Security Monitoring",
     title: "Updive SIEM",
     description:
       "Updive SIEM provides advanced security monitoring, real-time threat detection, and comprehensive analysis to safeguard your business infrastructure. With proactive threat identification and seamless integration, Updive SIEM helps you manage, detect, and respond to security incidents before they become serious threats.",

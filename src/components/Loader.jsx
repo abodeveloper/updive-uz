@@ -1,10 +1,10 @@
-import { HashLoader } from "react-spinners";
+import { ScaleLoader } from "react-spinners";
 import styled from "styled-components";
 
 const Loader = () => {
   return (
     <Spinner>
-      <HashLoader speedMultiplier={1.6} size={60} color={"#0D62FB"} />
+      <ScaleLoader speedMultiplier={1.6} width={8} color={"#0D62FB"} />
     </Spinner>
   );
 };
@@ -18,4 +18,5 @@ const Spinner = styled.div`
   height: 100vh;
   width: 100vw;
   gap: 50px;
+
 `;
