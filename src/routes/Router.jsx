@@ -18,6 +18,7 @@ const withDelay = (Component) => {
 
 // Lazy yuklangan sahifalar
 const Home = withDelay(lazy(() => import("@/pages/home/Home")));
+const Company = lazy(() => import("@/pages/company/Company"));
 const Contacts = lazy(() => import("@/pages/contacts/Contacts"));
 const Services = lazy(() => import("@/pages/services/Services"));
 const Dlp = lazy(() => import("@/pages/dlp/Dlp"));
@@ -35,6 +36,7 @@ const AppRouter = () => {
     <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/company" element={<Company />} />
         <Route path="/contacts" element={<Contacts />} />
         <Route path="/services" element={<Services />} />
         <Route path="/products/dlp" element={<Dlp />} />

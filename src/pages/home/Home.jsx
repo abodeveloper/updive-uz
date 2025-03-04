@@ -23,7 +23,7 @@ const Home = () => {
     image: DlpImage,
     topTitle: "Data Security",
     title: "Updive DLP",
-    url: "updive-dlp.uz",
+    url: "dlp.updive.uz",
     description:
       "Updive DLP (Data Loss Prevention) is a cutting-edge solution designed to safeguard sensitive information, prevent unauthorized access, and ensure compliance with data protection standards. Empower your business with tools to monitor, detect, and mitigate risks, securing your critical assets and maintaining trust.",
     info_data: [
@@ -52,7 +52,7 @@ const Home = () => {
   };
 
   const SIEM_DATA = {
-    url: "updive-siem.uz",
+    url: "siem.updive.uz",
     image: SiemImage,
     topTitle: "Security Monitoring",
     title: "Updive SIEM",

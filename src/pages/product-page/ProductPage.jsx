@@ -118,7 +118,7 @@ const ProductPage = () => {
                   "Our expert support team is available around the clock to help you safeguard your data and address any security concerns.",
               },
             },
-            url: "updive-dlp.uz",
+            url: "dlp.updive.uz",
             images: [
               DlpCarouselImage1,
               DlpCarouselImage2,
@@ -204,7 +204,7 @@ const ProductPage = () => {
                   "Our dedicated support team is here for you anytime, providing expert assistance to secure your infrastructure.",
               },
             },
-            url: "updive-siem.uz",
+            url: "siem.updive.uz",
             images: [
               SiemCarouselImage1,
               SiemCarouselImage2,

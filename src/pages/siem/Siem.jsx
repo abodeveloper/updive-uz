@@ -99,7 +99,7 @@ const Siem = () => {
           "Our dedicated support team is here for you anytime, providing expert assistance to secure your infrastructure.",
       },
     },
-    url: "updive-siem.uz",
+    url: "siem.updive.uz",
     images: [
       SiemCarouselImage1,
       SiemCarouselImage2,

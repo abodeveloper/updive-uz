@@ -28,6 +28,7 @@ const Footer = () => {
             <MenuWrapper>
               <Link to={"/products/dlp"}>Updive DLP</Link>
               <Link to={"/products/siem"}>Updive SIEM</Link>
+              <Link to={"/company"}>Company</Link>
               <Link to={"/services"}>Services</Link>
               <Link to={"/contacts"}>Contacts</Link>
             </MenuWrapper>

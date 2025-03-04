@@ -89,12 +89,13 @@ const Navbar = () => {
               <div
                 style={{ display: "flex", alignItems: "center", gap: "20px" }}
               >
+                <StyledLink to="/company">Company</StyledLink>
                 <DropdownWrapper
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
                   <div className="title">
-                    Product
+                    Products
                     <ArrowIcon
                       animate={{ rotate: isOpen ? -180 : 0 }}
                       transition={{ duration: 0.3 }}
@@ -229,6 +230,19 @@ const Navbar = () => {
                         <div className="description">
                           Security Information and Event Manager
                         </div>
+                      </div>
+                    </MenuItem>
+                    <MenuItem
+                      to={"/company"}
+                      onClick={() => {
+                        setIsOpenMenu(false);
+                      }}
+                    >
+                      <div className="left">
+                        <img src={ContactImg} alt="Logo" />
+                      </div>
+                      <div className="right">
+                        <div className="link">Company</div>
                       </div>
                     </MenuItem>
                     <MenuItem
