@@ -1,10 +1,8 @@
-import Icon4 from "@/assets/images/feature-icons/code-block.svg";
-import Icon1 from "@/assets/images/feature-icons/line-chart.svg";
-import Icon3 from "@/assets/images/feature-icons/settings-6.svg";
-import Icon5 from "@/assets/images/feature-icons/shield-check.svg";
-import Icon2 from "@/assets/images/feature-icons/time.svg";
-import Icon6 from "@/assets/images/feature-icons/user-heart.svg";
+import Person1 from "@/assets/images/team/team-person-1.jpg";
+import Person2 from "@/assets/images/team/team-person-2.png";
+import Person3 from "@/assets/images/team/team-person-3.jpg";
 import SectionTitle from "@/components/SectionTitle";
+import { motion } from "framer-motion";
 import { Container } from "react-bootstrap";
 import {
   Bottom,
@@ -17,10 +15,6 @@ import {
   SectionWrapper,
   Top,
 } from "./OurLeaders.styles";
-import Person1 from "@/assets/images/team/team-person-1.jpg";
-import Person2 from "@/assets/images/team/team-person-2.jpg";
-import Person3 from "@/assets/images/team/team-person-3.jpg";
-import { motion } from "framer-motion";
 
 const OurLeaders = () => {
   const INFO_DATA = [
