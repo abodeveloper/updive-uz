@@ -1,6 +1,6 @@
 import Person1 from "@/assets/images/team/team-person-1.png";
 import Person2 from "@/assets/images/team/team-person-2.png";
-import Person3 from "@/assets/images/team/team-person-3.jpg";
+import Person3 from "@/assets/images/team/team-person-3.png";
 import SectionTitle from "@/components/SectionTitle";
 import { motion } from "framer-motion";
 import { Container } from "react-bootstrap";
